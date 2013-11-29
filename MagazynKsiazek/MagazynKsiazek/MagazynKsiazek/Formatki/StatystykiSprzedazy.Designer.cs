@@ -44,6 +44,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -161,7 +162,8 @@
             this.button1.Location = new System.Drawing.Point(798, 69);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
+            this.button1.TabIndex = 0;
+            this.button1.TabStop = false;
             this.button1.Text = "Wyświetl";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button_Wyswietl);
@@ -195,11 +197,19 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Typ statystyki:";
             // 
+            // reportViewer1
+            // 
+            this.reportViewer1.Location = new System.Drawing.Point(12, 156);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.Size = new System.Drawing.Size(882, 320);
+            this.reportViewer1.TabIndex = 5;
+            // 
             // StatystykiSprzedazy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(906, 488);
+            this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
@@ -208,6 +218,7 @@
             this.Name = "StatystykiSprzedazy";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Statystyki sprzedaży - Magazyn Książek";
+            this.Load += new System.EventHandler(this.StatystykiSprzedazy_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -237,5 +248,6 @@
         private System.Windows.Forms.ToolStripMenuItem startToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem zamknijToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem wylogujToolStripMenuItem;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
     }
 }

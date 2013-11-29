@@ -97,5 +97,11 @@ namespace MagazynKsiazek
         private void dataRepeater1_CurrentItemIndexChanged(object sender, EventArgs e)
         {
                     }
+
+        private void StatystykiSprzedazy_Load(object sender, EventArgs e)
+        {
+
+            this.reportViewer1.RefreshReport();
+        }
     }
 }
