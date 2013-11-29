@@ -84,7 +84,7 @@ namespace MagazynKsiazek
         {
             BazaDanych baza = new BazaDanych();
             Klient kk = new Klient();
-            kk.Imie = ImieTB.Text;
+            kk.Imie = "janek";
             kk.Nazwisko = NazwiskoTB.Text;
             kk.Email = MailTB.Text;
             kk.Miejscowosc = MiejscowoscTB.Text;

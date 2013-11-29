@@ -13,7 +13,7 @@ namespace MagazynKsiazek.Klasy
 
         public BazaDanych()
         {
-            connection = new SQLiteConnection(@"Data Source=magazyn.db");
+            connection = new SQLiteConnection(@"Data Source=C:\Users\Siena\Desktop\MagazynKsiazek\MagazynKsiazek\bin\Debug\magazyn.db");
         }
 
         #region Klient
