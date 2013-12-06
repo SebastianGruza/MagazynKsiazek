@@ -141,7 +141,8 @@
             this.ImieTB.Location = new System.Drawing.Point(105, 60);
             this.ImieTB.Name = "ImieTB";
             this.ImieTB.Size = new System.Drawing.Size(157, 20);
-            this.ImieTB.TabIndex = 2;
+            this.ImieTB.TabIndex = 1;
+            this.ImieTB.TextChanged += new System.EventHandler(this.ImieTB_TextChanged);
             // 
             // NazwiskoLabel
             // 
@@ -193,35 +194,35 @@
             this.NazwiskoTB.Location = new System.Drawing.Point(105, 92);
             this.NazwiskoTB.Name = "NazwiskoTB";
             this.NazwiskoTB.Size = new System.Drawing.Size(157, 20);
-            this.NazwiskoTB.TabIndex = 8;
+            this.NazwiskoTB.TabIndex = 2;
             // 
             // MiejscowoscTB
             // 
             this.MiejscowoscTB.Location = new System.Drawing.Point(393, 27);
             this.MiejscowoscTB.Name = "MiejscowoscTB";
             this.MiejscowoscTB.Size = new System.Drawing.Size(166, 20);
-            this.MiejscowoscTB.TabIndex = 9;
+            this.MiejscowoscTB.TabIndex = 4;
             // 
             // UlicaTB
             // 
             this.UlicaTB.Location = new System.Drawing.Point(393, 60);
             this.UlicaTB.Name = "UlicaTB";
             this.UlicaTB.Size = new System.Drawing.Size(166, 20);
-            this.UlicaTB.TabIndex = 10;
+            this.UlicaTB.TabIndex = 5;
             // 
             // MailTB
             // 
             this.MailTB.Location = new System.Drawing.Point(105, 123);
             this.MailTB.Name = "MailTB";
             this.MailTB.Size = new System.Drawing.Size(157, 20);
-            this.MailTB.TabIndex = 12;
+            this.MailTB.TabIndex = 3;
             // 
             // DodajBT
             // 
             this.DodajBT.Location = new System.Drawing.Point(642, 19);
             this.DodajBT.Name = "DodajBT";
             this.DodajBT.Size = new System.Drawing.Size(75, 23);
-            this.DodajBT.TabIndex = 13;
+            this.DodajBT.TabIndex = 9;
             this.DodajBT.Text = "Dodaj";
             this.DodajBT.UseVisualStyleBackColor = true;
             this.DodajBT.Click += new System.EventHandler(this.DodajBT_Click);
@@ -231,14 +232,14 @@
             this.KodPocztTB.Location = new System.Drawing.Point(393, 123);
             this.KodPocztTB.Name = "KodPocztTB";
             this.KodPocztTB.Size = new System.Drawing.Size(52, 20);
-            this.KodPocztTB.TabIndex = 11;
+            this.KodPocztTB.TabIndex = 8;
             // 
             // UsunBT
             // 
             this.UsunBT.Location = new System.Drawing.Point(642, 134);
             this.UsunBT.Name = "UsunBT";
             this.UsunBT.Size = new System.Drawing.Size(75, 23);
-            this.UsunBT.TabIndex = 16;
+            this.UsunBT.TabIndex = 10;
             this.UsunBT.Text = "Usuń";
             this.UsunBT.UseVisualStyleBackColor = true;
             this.UsunBT.Click += new System.EventHandler(this.UsunBT_Click);
@@ -254,6 +255,7 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(829, 202);
             this.dataGridView1.TabIndex = 17;
+            this.dataGridView1.TabStop = false;
             this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
             // 
             // Column1
@@ -283,6 +285,7 @@
             this.WyszukajTB.Name = "WyszukajTB";
             this.WyszukajTB.Size = new System.Drawing.Size(226, 20);
             this.WyszukajTB.TabIndex = 23;
+            this.WyszukajTB.TabStop = false;
             this.WyszukajTB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.WyszukajTB.TextChanged += new System.EventHandler(this.WyszukajTB_TextChanged);
             // 
@@ -301,6 +304,7 @@
             this.ListaBT.Name = "ListaBT";
             this.ListaBT.Size = new System.Drawing.Size(114, 23);
             this.ListaBT.TabIndex = 20;
+            this.ListaBT.TabStop = false;
             this.ListaBT.Text = "Załaduj pełną listę";
             this.ListaBT.UseVisualStyleBackColor = true;
             this.ListaBT.Click += new System.EventHandler(this.ListaBT_Click);
@@ -312,6 +316,8 @@
             this.IDTB.ReadOnly = true;
             this.IDTB.Size = new System.Drawing.Size(157, 20);
             this.IDTB.TabIndex = 20;
+            this.IDTB.TabStop = false;
+            this.IDTB.TextChanged += new System.EventHandler(this.IDTB_TextChanged);
             // 
             // IDLabel
             // 
@@ -374,14 +380,14 @@
             this.NrLokaluTB.Location = new System.Drawing.Point(507, 92);
             this.NrLokaluTB.Name = "NrLokaluTB";
             this.NrLokaluTB.Size = new System.Drawing.Size(52, 20);
-            this.NrLokaluTB.TabIndex = 22;
+            this.NrLokaluTB.TabIndex = 7;
             // 
             // NrDomuTB
             // 
             this.NrDomuTB.Location = new System.Drawing.Point(393, 92);
             this.NrDomuTB.Name = "NrDomuTB";
             this.NrDomuTB.Size = new System.Drawing.Size(52, 20);
-            this.NrDomuTB.TabIndex = 21;
+            this.NrDomuTB.TabIndex = 6;
             // 
             // DodajKlienta
             // 

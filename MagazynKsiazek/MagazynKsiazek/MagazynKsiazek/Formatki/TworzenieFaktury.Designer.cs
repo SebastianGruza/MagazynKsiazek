@@ -33,6 +33,8 @@
             this.kToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.klienciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listaFakturToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.zamknijToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.wylogujToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -65,8 +67,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.wylogujToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.zamknijToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -118,13 +118,28 @@
             this.listaFakturToolStripMenuItem.Text = "Statystyki sprzedaży";
             this.listaFakturToolStripMenuItem.Click += new System.EventHandler(this.listaFakturToolStripMenuItem_Click);
             // 
+            // zamknijToolStripMenuItem
+            // 
+            this.zamknijToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.zamknijToolStripMenuItem.Name = "zamknijToolStripMenuItem";
+            this.zamknijToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.zamknijToolStripMenuItem.Text = "Zamknij";
+            this.zamknijToolStripMenuItem.Click += new System.EventHandler(this.zamknijToolStripMenuItem_Zamknij);
+            // 
+            // wylogujToolStripMenuItem
+            // 
+            this.wylogujToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.wylogujToolStripMenuItem.Name = "wylogujToolStripMenuItem";
+            this.wylogujToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+            this.wylogujToolStripMenuItem.Text = "Wyloguj";
+            // 
             // button1
             // 
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button1.Location = new System.Drawing.Point(355, 24);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
+            this.button1.TabIndex = 5;
             this.button1.Text = "Dodaj";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button_Dodaj);
@@ -134,7 +149,7 @@
             this.button2.Location = new System.Drawing.Point(355, 53);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 3;
+            this.button2.TabIndex = 6;
             this.button2.Text = "Aktualizuj";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button_Aktualizuj);
@@ -144,7 +159,7 @@
             this.button3.Location = new System.Drawing.Point(355, 122);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 4;
+            this.button3.TabIndex = 7;
             this.button3.Text = "Usuń";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button_Usun);
@@ -173,7 +188,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(104, 25);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(212, 20);
-            this.dateTimePicker1.TabIndex = 12;
+            this.dateTimePicker1.TabIndex = 1;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker_Data);
             // 
             // comboBox1
@@ -182,7 +197,8 @@
             this.comboBox1.Location = new System.Drawing.Point(115, 29);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(200, 21);
-            this.comboBox1.TabIndex = 13;
+            this.comboBox1.TabIndex = 7;
+            this.comboBox1.TabStop = false;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox_Klient);
             // 
             // textBox5
@@ -192,6 +208,7 @@
             this.textBox5.ReadOnly = true;
             this.textBox5.Size = new System.Drawing.Size(52, 20);
             this.textBox5.TabIndex = 19;
+            this.textBox5.TabStop = false;
             this.textBox5.TextChanged += new System.EventHandler(this.textBox_KodPocztowy);
             // 
             // textBox4
@@ -201,6 +218,7 @@
             this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(158, 20);
             this.textBox4.TabIndex = 18;
+            this.textBox4.TabStop = false;
             this.textBox4.TextChanged += new System.EventHandler(this.textBox_Miejscowosc);
             // 
             // textBox3
@@ -210,6 +228,7 @@
             this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(158, 20);
             this.textBox3.TabIndex = 17;
+            this.textBox3.TabStop = false;
             this.textBox3.TextChanged += new System.EventHandler(this.textBox_Ulica);
             // 
             // label5
@@ -246,6 +265,7 @@
             this.textBox6.ReadOnly = true;
             this.textBox6.Size = new System.Drawing.Size(158, 20);
             this.textBox6.TabIndex = 21;
+            this.textBox6.TabStop = false;
             this.textBox6.TextChanged += new System.EventHandler(this.textBox_IDKlienta);
             // 
             // label8
@@ -288,6 +308,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(777, 208);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.TabStop = false;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_TabelaFaktur);
             // 
             // Column3
@@ -337,15 +358,17 @@
             this.comboBox2.Location = new System.Drawing.Point(94, 27);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(212, 21);
-            this.comboBox2.TabIndex = 30;
+            this.comboBox2.TabIndex = 2;
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox_Tytul);
             // 
             // textBoxISBN
             // 
             this.textBoxISBN.Location = new System.Drawing.Point(94, 60);
             this.textBoxISBN.Name = "textBoxISBN";
+            this.textBoxISBN.ReadOnly = true;
             this.textBoxISBN.Size = new System.Drawing.Size(212, 20);
             this.textBoxISBN.TabIndex = 29;
+            this.textBoxISBN.TabStop = false;
             this.textBoxISBN.TextChanged += new System.EventHandler(this.textBox_ISBN);
             // 
             // numericUpDown1
@@ -353,7 +376,7 @@
             this.numericUpDown1.Location = new System.Drawing.Point(94, 86);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown1.TabIndex = 18;
+            this.numericUpDown1.TabIndex = 3;
             this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown_Ilosc);
             // 
             // label10
@@ -371,7 +394,7 @@
             this.textBox7.Location = new System.Drawing.Point(94, 112);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(120, 20);
-            this.textBox7.TabIndex = 17;
+            this.textBox7.TabIndex = 4;
             this.textBox7.TextChanged += new System.EventHandler(this.textBox_Cena);
             // 
             // label9
@@ -407,6 +430,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 208);
             this.button4.TabIndex = 28;
+            this.button4.TabStop = false;
             this.button4.Text = "Stwórz fakturę";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button_StworzFakture);
@@ -424,21 +448,6 @@
             this.groupBox3.TabIndex = 29;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Stwórz fakturę";
-            // 
-            // wylogujToolStripMenuItem
-            // 
-            this.wylogujToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.wylogujToolStripMenuItem.Name = "wylogujToolStripMenuItem";
-            this.wylogujToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
-            this.wylogujToolStripMenuItem.Text = "Wyloguj";
-            // 
-            // zamknijToolStripMenuItem
-            // 
-            this.zamknijToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.zamknijToolStripMenuItem.Name = "zamknijToolStripMenuItem";
-            this.zamknijToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
-            this.zamknijToolStripMenuItem.Text = "Zamknij";
-            this.zamknijToolStripMenuItem.Click += new System.EventHandler(this.zamknijToolStripMenuItem_Zamknij);
             // 
             // TworzenieFaktury
             // 

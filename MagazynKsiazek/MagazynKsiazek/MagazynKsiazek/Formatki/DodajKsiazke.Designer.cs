@@ -80,7 +80,7 @@
             this.buttonDodaj.Location = new System.Drawing.Point(629, 23);
             this.buttonDodaj.Name = "buttonDodaj";
             this.buttonDodaj.Size = new System.Drawing.Size(75, 23);
-            this.buttonDodaj.TabIndex = 0;
+            this.buttonDodaj.TabIndex = 8;
             this.buttonDodaj.Text = "Dodaj";
             this.buttonDodaj.UseVisualStyleBackColor = true;
             this.buttonDodaj.Click += new System.EventHandler(this.button_Dodaj);
@@ -88,7 +88,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 56);
+            this.label1.Location = new System.Drawing.Point(11, 58);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label1.Size = new System.Drawing.Size(35, 13);
@@ -100,7 +100,7 @@
             this.textBoxTytul.Location = new System.Drawing.Point(118, 56);
             this.textBoxTytul.Name = "textBoxTytul";
             this.textBoxTytul.Size = new System.Drawing.Size(223, 20);
-            this.textBoxTytul.TabIndex = 3;
+            this.textBoxTytul.TabIndex = 1;
             this.textBoxTytul.TextChanged += new System.EventHandler(this.textBox_Tytul);
             // 
             // textBoxAutor
@@ -108,7 +108,7 @@
             this.textBoxAutor.Location = new System.Drawing.Point(118, 82);
             this.textBoxAutor.Name = "textBoxAutor";
             this.textBoxAutor.Size = new System.Drawing.Size(223, 20);
-            this.textBoxAutor.TabIndex = 4;
+            this.textBoxAutor.TabIndex = 2;
             this.textBoxAutor.TextChanged += new System.EventHandler(this.textBox_Autor);
             // 
             // textBoxWydawnictwo
@@ -116,7 +116,7 @@
             this.textBoxWydawnictwo.Location = new System.Drawing.Point(118, 108);
             this.textBoxWydawnictwo.Name = "textBoxWydawnictwo";
             this.textBoxWydawnictwo.Size = new System.Drawing.Size(223, 20);
-            this.textBoxWydawnictwo.TabIndex = 5;
+            this.textBoxWydawnictwo.TabIndex = 3;
             this.textBoxWydawnictwo.TextChanged += new System.EventHandler(this.textBox_Wydawnictwo);
             // 
             // label2
@@ -154,7 +154,7 @@
             this.numericUpDownIlosc.Location = new System.Drawing.Point(435, 61);
             this.numericUpDownIlosc.Name = "numericUpDownIlosc";
             this.numericUpDownIlosc.Size = new System.Drawing.Size(121, 20);
-            this.numericUpDownIlosc.TabIndex = 10;
+            this.numericUpDownIlosc.TabIndex = 6;
             this.numericUpDownIlosc.ValueChanged += new System.EventHandler(this.numericUpDown_Ilosc);
             // 
             // label6
@@ -171,13 +171,13 @@
             this.textBoxCena.Location = new System.Drawing.Point(435, 91);
             this.textBoxCena.Name = "textBoxCena";
             this.textBoxCena.Size = new System.Drawing.Size(121, 20);
-            this.textBoxCena.TabIndex = 13;
+            this.textBoxCena.TabIndex = 7;
             this.textBoxCena.TextChanged += new System.EventHandler(this.textBox_Cena);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(11, 25);
+            this.label8.Location = new System.Drawing.Point(11, 27);
             this.label8.Name = "label8";
             this.label8.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label8.Size = new System.Drawing.Size(35, 13);
@@ -186,10 +186,12 @@
             // 
             // textBoxISBN
             // 
-            this.textBoxISBN.Location = new System.Drawing.Point(118, 25);
+            this.textBoxISBN.Location = new System.Drawing.Point(118, 27);
             this.textBoxISBN.Name = "textBoxISBN";
+            this.textBoxISBN.ReadOnly = true;
             this.textBoxISBN.Size = new System.Drawing.Size(223, 20);
             this.textBoxISBN.TabIndex = 17;
+            this.textBoxISBN.TabStop = false;
             this.textBoxISBN.TextChanged += new System.EventHandler(this.textBox_ISBN);
             // 
             // label9
@@ -217,7 +219,7 @@
             this.textBoxRokwydania.Location = new System.Drawing.Point(118, 134);
             this.textBoxRokwydania.Name = "textBoxRokwydania";
             this.textBoxRokwydania.Size = new System.Drawing.Size(223, 20);
-            this.textBoxRokwydania.TabIndex = 20;
+            this.textBoxRokwydania.TabIndex = 4;
             this.textBoxRokwydania.TextChanged += new System.EventHandler(this.textBox_RokWydania);
             // 
             // comboBoxGatunek
@@ -238,7 +240,7 @@
             this.comboBoxGatunek.Location = new System.Drawing.Point(437, 32);
             this.comboBoxGatunek.Name = "comboBoxGatunek";
             this.comboBoxGatunek.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxGatunek.TabIndex = 21;
+            this.comboBoxGatunek.TabIndex = 5;
             this.comboBoxGatunek.SelectedIndexChanged += new System.EventHandler(this.comboBox_Gatunek);
             // 
             // startToolStripMenuItem
@@ -316,6 +318,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(814, 197);
             this.dataGridView1.TabIndex = 23;
+            this.dataGridView1.TabStop = false;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_TabelaKsiazek);
             // 
             // Column1
@@ -363,7 +366,7 @@
             this.buttonUsun.Location = new System.Drawing.Point(629, 144);
             this.buttonUsun.Name = "buttonUsun";
             this.buttonUsun.Size = new System.Drawing.Size(75, 23);
-            this.buttonUsun.TabIndex = 24;
+            this.buttonUsun.TabIndex = 10;
             this.buttonUsun.Text = "Usuń";
             this.buttonUsun.UseVisualStyleBackColor = true;
             this.buttonUsun.Click += new System.EventHandler(this.button_Usun);
@@ -373,7 +376,7 @@
             this.buttonAktualizuj.Location = new System.Drawing.Point(629, 58);
             this.buttonAktualizuj.Name = "buttonAktualizuj";
             this.buttonAktualizuj.Size = new System.Drawing.Size(75, 23);
-            this.buttonAktualizuj.TabIndex = 25;
+            this.buttonAktualizuj.TabIndex = 9;
             this.buttonAktualizuj.Text = "Aktualizuj";
             this.buttonAktualizuj.UseVisualStyleBackColor = true;
             this.buttonAktualizuj.Click += new System.EventHandler(this.button_Aktualizuj);
@@ -398,6 +401,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(205, 20);
             this.textBox2.TabIndex = 28;
+            this.textBox2.TabStop = false;
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox_Wyszukaj);
             // 
@@ -416,6 +420,7 @@
             this.buttonZaladuj.Name = "buttonZaladuj";
             this.buttonZaladuj.Size = new System.Drawing.Size(114, 23);
             this.buttonZaladuj.TabIndex = 25;
+            this.buttonZaladuj.TabStop = false;
             this.buttonZaladuj.Text = "Załaduj pełną listę";
             this.buttonZaladuj.UseVisualStyleBackColor = true;
             this.buttonZaladuj.Click += new System.EventHandler(this.button_ZaladujPelnaListe);

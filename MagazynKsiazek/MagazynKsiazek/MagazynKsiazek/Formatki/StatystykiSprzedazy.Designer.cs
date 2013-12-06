@@ -127,7 +127,7 @@
             this.dateTimePicker2.Location = new System.Drawing.Point(99, 56);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 3;
+            this.dateTimePicker2.TabIndex = 2;
             this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker_DoDnia);
             // 
             // dateTimePicker1
@@ -135,7 +135,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(99, 25);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 2;
+            this.dateTimePicker1.TabIndex = 1;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker_OdDnia);
             // 
             // label2
@@ -162,8 +162,7 @@
             this.button1.Location = new System.Drawing.Point(798, 69);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.TabStop = false;
+            this.button1.TabIndex = 4;
             this.button1.Text = "Wyświetl";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button_Wyswietl);
@@ -203,6 +202,7 @@
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.Size = new System.Drawing.Size(882, 320);
             this.reportViewer1.TabIndex = 5;
+            this.reportViewer1.TabStop = false;
             // 
             // StatystykiSprzedazy
             // 

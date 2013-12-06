@@ -35,5 +35,14 @@ namespace MagazynKsiazek
             }
         }
 
+        private void button_Siemanko(object sender, EventArgs e)
+        {
+            Hide();
+            OknoGlowne og = new OknoGlowne();
+            og.ShowDialog();
+        }
+
+
+
     }
 }
