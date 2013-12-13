@@ -7,22 +7,21 @@ namespace MagazynKsiazek.Klasy
 {
     class Ksiazki
     {
-        public int ID_Ksiazki { get; set; }
+        public int ISBN { get; set; }
         public string Tytul { get; set; }
-        public string Autor { get; set; }
+        public int ID_Autora { get; set; }
         public string Wydawnictwo { get; set; }
-        public string RokWydania { get; set; }
+        public int RokWydania { get; set; }
         public string Gatunek { get; set; }
-        public string Ilosc { get; set; }
+        public int Ilosc { get; set; }
+        public int Cena { get; set; }
 
-        public string Cena { get; set; }
-
-        public Ksiazki(int id_ksiazki, string tytul, string autor, string wydawnictwo,
-        string rokwydania, string gatunek, string ilosc, string cena)
+        public Ksiazki(int isbn, string tytul, int id_autora, string wydawnictwo,
+        int rokwydania, string gatunek, int ilosc, int cena)
         {
-            ID_Ksiazki = id_ksiazki;
+            ISBN = isbn;
             Tytul = tytul;
-            Autor = autor;
+            ID_Autora = id_autora;
             Wydawnictwo = wydawnictwo;
             RokWydania = rokwydania;
             Gatunek = gatunek;
