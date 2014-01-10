@@ -8,8 +8,6 @@ using System.Text;
 //using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using MagazynKsiazek.Klasy;
-
 namespace MagazynKsiazek
 {
     public partial class DodajKsiazke : Form
@@ -115,41 +113,11 @@ namespace MagazynKsiazek
         private void button_Dodaj(object sender, EventArgs e)
         {
 
-            BazaDanych baza1 = new BazaDanych();
-            Ksiazki mm = new Ksiazki();
-           
-
-                mm.Tytul = KTytul.Text;
-                mm.Autor = KAutor.Text;
-                mm.Wydawnictwo = KWydawnictwo.Text;
-                mm.RokWydania = KRokWydania.Text;
-                mm.Gatunek =  KGatuenk.Text;
-                mm.Ilosc = KIlosc.Text;
-                mm.Cena = KCena.Text;
-
-                baza1.DodajKsiazke(mm);
-
-
         }
 
         private void button_Usun(object sender, EventArgs e)
         {
-            DataGridViewCheckBoxCell cell = null;
-            BazaDanych baza1 = new BazaDanych();
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-                cell = row.Cells[0] as DataGridViewCheckBoxCell;
-                if (cell.Value != cell.TrueValue)
-                {
-                    string numer = row.Cells[1].Value.ToString();
-                    if (MessageBox.Show("Jesteś pewien, że chcesz usunąć ksiazke " + row.Cells[2].Value.ToString() + " " + row.Cells[3].Value.ToString() + "?", "Potwierdź", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        baza1.UsunKsiazke(Convert.ToInt32(numer));
-                    }
-                }
-            }
-            DataTable dt = baza1.wykonajSelect("SELECT * FROM Klienci");
-            this.dataGridView1.DataSource = dt;
+
         }
 
         private void textBox_Wyszukaj(object sender, EventArgs e)
@@ -164,10 +132,7 @@ namespace MagazynKsiazek
 
         private void button_ZaladujPelnaListe(object sender, EventArgs e)
         {
-            Column1.Visible = true;
-            BazaDanych baza1 = new BazaDanych();
-            DataTable dt = baza1.wykonajSelect("SELECT * FROM Ksiazki");
-            this.dataGridView1.DataSource = dt;
+
         }
 
         private void ToolStripMenuItem_Zamknij(object sender, EventArgs e)
