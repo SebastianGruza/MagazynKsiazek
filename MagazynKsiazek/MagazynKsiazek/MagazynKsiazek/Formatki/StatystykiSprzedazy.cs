@@ -51,7 +51,7 @@ namespace MagazynKsiazek
         {
             
             Hide();
-            DodajKsiazke ks = new DodajKsiazke();
+            RokWydaniaTB ks = new RokWydaniaTB();
             ks.ShowDialog();
         }
 

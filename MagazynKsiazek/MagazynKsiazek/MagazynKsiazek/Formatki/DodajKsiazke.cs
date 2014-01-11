@@ -7,26 +7,183 @@ using System.Linq;
 using System.Text;
 //using System.Threading.Tasks;
 using System.Windows.Forms;
+using MagazynKsiazek.Klasy;
+using System.Text.RegularExpressions;
 
 namespace MagazynKsiazek
 {
-    public partial class DodajKsiazke : Form
+    public partial class RokWydaniaTB : Form
     {
-        public DodajKsiazke()
+        public RokWydaniaTB()
         {
             InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private bool Walidacja()
         {
+            bool w1 = Regex.IsMatch(TytulTB.Text, "^[A-ZĄŚŁÓŻŹŃĘĆ][a-ząćżźńółęśA-ZĄŚŁÓŻŹŃĘĆ -]{2,}$");
+            if (w1 == false)
+            {
+                TytulTB.BackColor = new Color();
+                TytulTB.BackColor = Color.Red;
+            }
+            else
+            {
+                TytulTB.BackColor = new Color();
+                TytulTB.BackColor = Color.White;
+            }
+            bool w2 = Regex.IsMatch(AutorTB.Text, "^[A-ZĄŚŁÓŻŹŃĘĆ][a-ząćżźńółęśA-ZĄŚŁÓŻŹŃĘĆ -]{2,}$");
+            if (w2 == false)
+            {
+                AutorTB.BackColor = new Color();
+                AutorTB.BackColor = Color.Red;
+            }
+            else
+            {
+                AutorTB.BackColor = new Color();
+                AutorTB.BackColor = Color.White;
+            }
+
+         
+            bool w3 = Regex.IsMatch(WydawnictwoTB.Text, "^[A-ZĄŚŁÓŻŹŃĘĆ][a-ząćżźńółęśA-ZĄŚŁÓŻŹŃĘĆ -]{2,}$");
+            if (w3 == false)
+            {
+                WydawnictwoTB.BackColor = new Color();
+                WydawnictwoTB.BackColor = Color.Red;
+            }
+            else
+            {
+                WydawnictwoTB.BackColor = new Color();
+                WydawnictwoTB.BackColor = Color.White;
+            }
+            bool w4 = Regex.IsMatch(RokTB.Text, "^[0-9]{1,}[a-z]*$");
+            if (w4 == false)
+            {
+                RokTB.BackColor = new Color();
+                RokTB.BackColor = Color.Red;
+            }
+            else
+            {
+                RokTB.BackColor = new Color();
+                RokTB.BackColor = Color.White;
+            }
+            bool w5 = Regex.IsMatch(CenaTB.Text, "^[0-9]{1,}[a-ząćżźńółęśA-ZĄŚŁÓŻŹŃĘĆ -]*$");
+            if (w5 == false)
+            {
+                CenaTB.BackColor = new Color();
+                CenaTB.BackColor = Color.Red;
+            }
+            else
+            {
+                CenaTB.BackColor = new Color();
+                CenaTB.BackColor = Color.White;
+            }
+            bool w6 = Regex.IsMatch(GatunekTB.Text, "^[A-ZĄŚŁÓŻŹŃĘĆ][a-ząćżźńółęśA-ZĄŚŁÓŻŹŃĘĆ -]{2,}$");
+            if (w3 == false)
+            {
+                GatunekTB.BackColor = new Color();
+                GatunekTB.BackColor = Color.Red;
+            }
+            else
+            {
+                GatunekTB.BackColor = new Color();
+                GatunekTB.BackColor = Color.White;
+            }
+            if (w1 == false || w2 == false || w3 == false || w4 == false || w5 == false || w6 == false)
+            {
+                return false;
+            }
+            return true;
+        }
+        
+        private void ListaBT_Click(object sender, EventArgs e)
+        {
+            Column1.Visible = true;
+            BazaDanych baza = new BazaDanych();
+            DataTable dt = baza.wykonajSelect("SELECT * FROM Ksiazki");
+            this.dataGridView1.DataSource = dt;
+        }
+
+
+        private void DodajBT_Click(object sender, EventArgs e)
+        {
+            BazaDanych baza = new BazaDanych();
+            Ksiazki kk = new Ksiazki();
+            if (Walidacja() == true)
+            {
+                
+                kk.Tytul = TytulTB.Text;
+                kk.DaneAutora = AutorTB.Text;
+                kk.Wydawnictwo = WydawnictwoTB.Text;
+                kk.RokWydania = RokTB.Text;
+                kk.Gatunek = GatunekTB.Text;
+                kk.Ilosc = IloscTB.Text;
+                kk.Cena = CenaTB.Text;
+                baza.DodajKsiazke(kk);
+           
+            }
+            DataTable dt = baza.wykonajSelectKsiazki("SELECT * FROM Ksiazki");
+            this.dataGridView1.DataSource = dt;
+
+            
+        }
+        
+        private void UsunTB_Click(object sender, EventArgs e)
+        {
+            DataGridViewCheckBoxCell cell = null;
+            BazaDanych baza = new BazaDanych();
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                cell = row.Cells[0] as DataGridViewCheckBoxCell;
+                if (cell.Value != cell.TrueValue)
+                {
+                    string numer = row.Cells[1].Value.ToString();
+                    if (MessageBox.Show("Jesteś pewien, że chcesz usunąć książkę " + row.Cells[2].Value.ToString() + " " + row.Cells[3].Value.ToString() + "?", "Potwierdź", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        baza.UsunKsiazke(Convert.ToInt32(numer));
+                    }
+                }
+            }
+            DataTable dt = baza.wykonajSelectKsiazki("SELECT * FROM Ksiazki");
+            this.dataGridView1.DataSource = dt;
+        }
+        string editedItem;
+        int numerID;
+        string columnName;
+
+
+        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            BazaDanych baza = new BazaDanych();
+            DataGridView dgv = sender as DataGridView;
+            editedItem = dgv.CurrentCell.Value.ToString();
+            int number = dgv.CurrentCell.ColumnIndex;
+            if (number != 0)
+            {
+                columnName = dgv.Columns[number].Name;
+                numerID = Convert.ToInt32(dgv.CurrentRow.Cells[1].Value);
+                if (MessageBox.Show("Jesteś pewien, że chcesz wprowadzić zmiany?", "Potwierdź", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    baza.EdytujKsiazke(Convert.ToInt32(numerID), columnName, editedItem);
+                }
+                else
+                {
+                    DataTable dt = baza.wykonajSelectKsiazki("SELECT * FROM Ksiazki");
+                    this.dataGridView1.DataSource = dt;
+                }
+            }
 
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void WyszukajTB_TextChanged(object sender, EventArgs e)
         {
-
+            string text = WyszukajTB.Text;
+            BazaDanych baza = new BazaDanych();
+            DataTable dt = baza.wykonajSelect("SELECT * FROM Ksiazki WHERE Tytul LIKE '" +
+                text + "%' OR ID_Autora LIKE '%" + text + "' OR Wydawnictwo LIKE '%" + text + "%' OR RokWydania LIKE '" +
+                text + "%' OR Gatunek LIKE '%" + text + "' OR Cena LIKE '%" + text + "%'");
+            this.dataGridView1.DataSource = dt;
         }
-
         private void comboBox_Gatunek(object sender, EventArgs e)
         {
 
@@ -75,65 +232,7 @@ namespace MagazynKsiazek
             this.Close();
         }
 
-        private void textBox_Wydawnictwo(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox_RokWydania(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox_ISBN(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox_Tytul(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox_Autor(object sender, EventArgs e)
-        {
-
-        }
-
-        private void numericUpDown_Ilosc(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox_Cena(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button_Dodaj(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button_Usun(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox_Wyszukaj(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView_TabelaKsiazek(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void button_ZaladujPelnaListe(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void ToolStripMenuItem_Zamknij(object sender, EventArgs e)
         {
