@@ -82,67 +82,6 @@ namespace MagazynKsiazek.Klasy
         #endregion
 
         #region Ksiazka
-        public DataTable wykonajSelectKsiazki(string query)
-        {
-            DataTable dt = new DataTable();
-            SQLiteDataAdapter da;
-
-            try
-            {
-                SQLiteCommand cmd;
-                connection.Open();
-                cmd = connection.CreateCommand();
-                cmd.CommandText = query;
-                da = new SQLiteDataAdapter(cmd);
-                da.Fill(dt);
-                connection.Close();
-            }
-            catch (SQLiteException ex)
-            {
-            }
-            catch (Exception ex2)
-            {
-            }
-
-            return dt;
-        }
-
-        public void DodajKsiazke(Ksiazki ksiazka)
-        {
-            using (connection)
-            {
-                SQLiteCommand myCommand = connection.CreateCommand();
-                myCommand.CommandText = "INSERT INTO Ksiazki(Tytul, ID_Autora, Wydawnictwo, RokWydania, Gatunek, Ilosc, Cena) VALUES('" + ksiazka.Tytul + "','" + ksiazka.DaneAutora + "','" + ksiazka.Wydawnictwo + "','" + ksiazka.RokWydania + "','" + ksiazka.Gatunek + "','" + ksiazka.Ilosc + "','" + ksiazka.Cena + "')";
-                connection.Open();
-                myCommand.ExecuteNonQuery();
-                connection.Close();
-            }
-        }
-        
-        public void UsunKsiazke(int isbn)
-        {
-            using (connection)
-            {
-                SQLiteCommand myCommand = connection.CreateCommand();
-                myCommand.CommandText = "DELETE FROM Ksiazki WHERE ISBN = '" + isbn + "'";
-                connection.Open();
-                myCommand.ExecuteNonQuery();
-                connection.Close();
-            }
-        }
-
-        public void EdytujKsiazke(int isbn, string colName, string newValue)
-        {
-            using (connection)
-            {
-                SQLiteCommand myCommand = connection.CreateCommand();
-                myCommand.CommandText = "UPDATE Ksiazki SET " + colName + " = '" + newValue + "' WHERE ISBN = '" + isbn + "'";
-                connection.Open();
-                myCommand.ExecuteNonQuery();
-                connection.Close();
-            }
-        }
-
         #endregion
 
         #region Faktura
