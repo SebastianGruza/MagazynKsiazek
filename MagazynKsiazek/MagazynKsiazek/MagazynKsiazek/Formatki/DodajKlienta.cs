@@ -134,7 +134,7 @@ namespace MagazynKsiazek
         private void ToolStripMenuItem_DodajKsiazke(object sender, EventArgs e)
         {
             Hide();
-            DodajKsiazke ks = new DodajKsiazke();
+            RokWydaniaTB ks = new RokWydaniaTB();
             ks.ShowDialog();
         }
 
@@ -174,7 +174,7 @@ namespace MagazynKsiazek
         {
             Column1.Visible = true;
             BazaDanych baza = new BazaDanych();
-            DataTable dt = baza.wykonajSelect("SELECT * FROM Klienci");
+            DataTable dt = baza.wykonajSelectFaktura("SELECT * FROM Klienci");
             this.dataGridView1.DataSource = dt;
         }
 

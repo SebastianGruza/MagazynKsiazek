@@ -33,7 +33,7 @@ namespace MagazynKsiazek
         private void ToolStripMenuItem_BazaKsiazek(object sender, EventArgs e)
         {
             Hide();
-            DodajKsiazke dk = new DodajKsiazke();
+            RokWydaniaTB dk = new RokWydaniaTB();
             dk.ShowDialog();
         }
 
@@ -50,7 +50,7 @@ namespace MagazynKsiazek
         private void button_BazaKsiazek(object sender, EventArgs e)
         {
             Hide();
-            DodajKsiazke ks = new DodajKsiazke();
+            RokWydaniaTB ks = new RokWydaniaTB();
             ks.ShowDialog();
         }
 
