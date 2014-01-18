@@ -82,6 +82,7 @@
     <Compile Include="Klasy\Faktura.cs" />
     <Compile Include="Klasy\Klient.cs" />
     <Compile Include="Klasy\Ksiazki.cs" />
+    <Compile Include="Klasy\SprzedazKsiazek.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">

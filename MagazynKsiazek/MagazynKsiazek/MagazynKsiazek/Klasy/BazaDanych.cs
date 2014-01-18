@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data.SQLite;
 using System.Data;
+using System.Windows.Forms;
 
 namespace MagazynKsiazek.Klasy
 {
@@ -146,6 +147,93 @@ namespace MagazynKsiazek.Klasy
         #endregion
 
         #region Faktura
+
+        internal IList<Faktura> pobierzListeFaktur()
+        {
+            IList<Faktura> listaFaktur = new List<Faktura>();
+
+            try
+            {
+                SQLiteCommand cmd;
+                connection.Open();
+                cmd = connection.CreateCommand();
+                cmd.CommandText =
+                "select f.ID_Faktury,  f.Data_Wystawienia, f.ID_Klienta " +
+                " from Faktury as f " +
+                " order by f.Data_Wystawienia";
+
+                SQLiteDataReader reader = cmd.ExecuteReader();
+
+                while (reader != null && reader.Read())
+                {
+
+                    Faktura fak = new Faktura();
+                    fak.Id = reader.GetInt32(0); ;
+                    fak.Data = reader.GetDateTime(1);
+                    fak.ID_Klienta = reader.GetInt32(2);
+
+                    listaFaktur.Add(fak);
+                }
+
+                reader.Close();
+                connection.Close();
+
+
+                connection.Open();
+                cmd = connection.CreateCommand();
+                cmd.CommandText =
+                "select sk.ID_Faktury, sk.ID_Sprzedazy,   sk.Liczba, sk.ID_Ksiazki, sk.Cena " +
+                " from Sprzedaz_Ksiazek as sk " +
+                " order by sk.ID_Faktury";
+
+                reader = cmd.ExecuteReader();
+                List<int> Id_sprzedanychKsiazek = new List<int>();
+                listaFaktur[0].listaSprzedanychKsiazek = new List<SprzedazKsiazek>();
+                int licznik = 0;
+                while (reader != null && reader.Read())
+                {
+                    int id = reader.GetInt32(0);
+
+                    for (licznik = 0; licznik < listaFaktur.Count; licznik++)
+                    {
+                        if (listaFaktur[licznik].Id == id)
+                            break;
+                    }
+                    SprzedazKsiazek sprz_ksi = new SprzedazKsiazek();
+                    sprz_ksi.Id = reader.GetInt32(1);
+                    sprz_ksi.Ilosc = reader.GetInt32(2);
+                    sprz_ksi.IdKsiazki = reader.GetInt32(3);
+                    sprz_ksi.Cena = reader.GetInt32(4);
+
+
+                    listaFaktur[licznik].listaSprzedanychKsiazek.Add(sprz_ksi);
+                }
+
+                reader.Close();
+                connection.Close();
+
+                for (int i = 0; i < listaFaktur.Count; i++)
+                {
+                    for (int j = 0; j < listaFaktur[i].listaSprzedanychKsiazek.Count; j++)
+                    {
+                       // listaFaktur[i].listaSprzedanychKsiazek[j].ksi = pobierzKsiazkePoId(listaFaktur[i].listaSprzedanychKsiazek[j].IdTow);
+                    }
+
+                }
+            }
+            catch (SQLiteException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex2)
+            {
+                MessageBox.Show(ex2.Message);
+            }
+            return listaFaktur;
+        }
+
+
+        /*
         public DataTable wykonajSelectFaktura(string query)
         {
             DataTable dt = new DataTable();
@@ -203,10 +291,10 @@ namespace MagazynKsiazek.Klasy
                 connection.Close();
             }
         }
+        
+        */
         #endregion
 
-
-
-        }
+    }
     }
 

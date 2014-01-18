@@ -146,6 +146,7 @@ namespace MagazynKsiazek
         string columnName;
         private void dataGridView_TabelaFaktur(object sender, DataGridViewCellEventArgs e)
         {
+            /*
             BazaDanych baza = new BazaDanych();
             DataGridView dgv = sender as DataGridView;
             editedItem = dgv.CurrentCell.Value.ToString();
@@ -164,7 +165,7 @@ namespace MagazynKsiazek
                     this.dataGridView1.DataSource = dt;
                 }
             }
-
+            */
         }
 
         private void button_StworzFakture(object sender, EventArgs e)
@@ -196,8 +197,9 @@ namespace MagazynKsiazek
         {
             Column1.Visible = true;
             BazaDanych baza = new BazaDanych();
-            DataTable dt = baza.wykonajSelect("SELECT * FROM Faktury");
-            this.dataGridView1.DataSource = dt;
+            IList<Faktura> listaFaktur=baza.pobierzListeFaktur();
+            //DataTable dt = baza.wykonajSelect("SELECT * FROM Faktury");
+            //this.dataGridView1.DataSource = dt;
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -213,7 +215,7 @@ namespace MagazynKsiazek
                         string numer = row.Cells[1].Value.ToString();
                         if (MessageBox.Show("Jesteś pewien, że chcesz usunąć klienta " + row.Cells[2].Value.ToString() + " " + row.Cells[3].Value.ToString() + "?", "Potwierdź", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
-                            baza.UsunFakture(Convert.ToInt32(numer));
+                           // baza.UsunFakture(Convert.ToInt32(numer));
                         }
                     }
                 }

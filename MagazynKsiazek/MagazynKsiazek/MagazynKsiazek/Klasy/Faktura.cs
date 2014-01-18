@@ -7,32 +7,69 @@ namespace MagazynKsiazek.Klasy
 {
     class Faktura
     {
-        public string ID_Klienta { get; set; }
-        public string Data_Wystawienia { get; set; }
-        public int ID_Faktury { get; set; }
-        public string Nr_Faktury { get; set; }
-        public string Klient { get; set; }
-        public string Towar { get; set; }
-        public string Ilosc { get; set; }
-        public string Cena { get; set; }
 
-        public Faktura(string id_klienta, string data_wystawienia, int id_faktury, string nr_faktury, string klient,
-            string towar, string ilosc, string cena)
-        {
-            ID_Klienta = id_klienta;
-            Data_Wystawienia = data_wystawienia;
-            ID_Faktury = id_faktury;
-            Nr_Faktury = nr_faktury;
-            Klient = klient;
-            Towar = towar;
-            Ilosc = ilosc;
-            Cena = cena;
-
-
-
-        }
+        public IList<SprzedazKsiazek> listaSprzedanychKsiazek = new List<SprzedazKsiazek>();
+        public Klient klient = new Klient();
         public Faktura()
         {
+            Data = DateTime.Now;
+            Id = -1;
+        }
+
+        private int _Id;
+        public int Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                this._Id = value;
+            }
+        }
+
+
+
+        private DateTime _Data;
+        public DateTime Data
+        {
+            get
+            {
+                return this._Data;
+            }
+            set
+            {
+                this._Data = value;
+            }
+        }
+        private int _ID_Klienta;
+        public int ID_Klienta
+        {
+            get
+            {
+                return this._ID_Klienta;
+            }
+            set
+            {
+                this._ID_Klienta = value;
+            }
+        }
+
+ 
+
+        public decimal Cena
+        {
+            get
+            {
+                decimal razem = 0;
+                for (int i = 0; i < listaSprzedanychKsiazek.Count; i++)
+                {
+                    SprzedazKsiazek pozycja = listaSprzedanychKsiazek[i];
+                    razem = razem + pozycja.Ilosc * pozycja.Cena;
+                }
+                return razem;
+            }
 
         }
     }
