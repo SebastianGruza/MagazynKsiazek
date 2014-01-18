@@ -66,6 +66,18 @@
     <Compile Include="Formatki\DodajKsiazke.Designer.cs">
       <DependentUpon>DodajKsiazke.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formatki\EdycjaFaktury.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formatki\EdycjaFaktury.Designer.cs">
+      <DependentUpon>EdycjaFaktury.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formatki\EdycjaPozycji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formatki\EdycjaPozycji.Designer.cs">
+      <DependentUpon>EdycjaPozycji.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formatki\OknoGlowne.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +119,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formatki\DodajKsiazke.resx">
       <DependentUpon>DodajKsiazke.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formatki\EdycjaFaktury.resx">
+      <DependentUpon>EdycjaFaktury.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formatki\EdycjaPozycji.resx">
+      <DependentUpon>EdycjaPozycji.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formatki\OknoGlowne.resx">
       <DependentUpon>OknoGlowne.cs</DependentUpon>

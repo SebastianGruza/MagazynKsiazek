@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MagazynKsiazek.Klasy
 {
-    class SprzedazKsiazek
+    public class SprzedazKsiazek
     {
 
         private int _Id;

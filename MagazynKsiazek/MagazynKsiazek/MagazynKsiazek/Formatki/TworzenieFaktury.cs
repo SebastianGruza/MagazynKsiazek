@@ -5,10 +5,10 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-//using System.Threading.Tasks;
 using System.Windows.Forms;
 using MagazynKsiazek.Klasy;
 using System.Text.RegularExpressions;
+using MagazynKsiazek.Formatki;
 
 namespace MagazynKsiazek
 {
@@ -170,7 +170,11 @@ namespace MagazynKsiazek
 
         private void button_StworzFakture(object sender, EventArgs e)
         {
-
+            EdycjaFaktury no = new EdycjaFaktury();
+            no.MdiParent = this.MdiParent;
+            no.Rodzic = this;
+            no.Show();
+            no.BringToFront();
         }
 
         private void listaFakturToolStripMenuItem_Click(object sender, EventArgs e)
@@ -195,32 +199,54 @@ namespace MagazynKsiazek
 
         private void button5_Click(object sender, EventArgs e)
         {
-            Column1.Visible = true;
+            //Column1.Visible = true;
             BazaDanych baza = new BazaDanych();
             IList<Faktura> listaFaktur=baza.pobierzListeFaktur();
-            //DataTable dt = baza.wykonajSelect("SELECT * FROM Faktury");
-            //this.dataGridView1.DataSource = dt;
+
+
+            for (int i = 0; i < listaFaktur.Count; i++)
+            {
+                DataGridViewRow wiersz = this.dataGridView1.RowTemplate.Clone() as DataGridViewRow;
+                wiersz.CreateCells(this.dataGridView1);
+                Faktura f = listaFaktur[i];
+                wiersz.Tag = f;
+                wiersz.Cells[1].Value = f.Id;
+                wiersz.Cells[2].Value = f.ID_Klienta;
+                wiersz.Cells[3].Value = f.klient.Imie + " " + f.klient.Nazwisko;
+                wiersz.Cells[4].Value = f.Data.ToShortDateString();
+                wiersz.Cells[5].Value = f.listaSprzedanychKsiazek.Count;
+                wiersz.Cells[6].Value = String.Format("{0:C}", f.Cena);
+
+                this.dataGridView1.Rows.Add(wiersz);
+            }
+
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
+           
+           
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEdycja_Click(object sender, EventArgs e)
+        {
+            if (this.dataGridView1.SelectedRows.Count > 0) //sprawdzamy, czy jest zaznaczony element
             {
-                DataGridViewCheckBoxCell cell = null;
-                BazaDanych baza = new BazaDanych();
-                foreach (DataGridViewRow row in dataGridView1.Rows)
+                Faktura faktObj = this.dataGridView1.SelectedRows[0].Tag as Faktura;
+                if (faktObj != null)
                 {
-                    cell = row.Cells[0] as DataGridViewCheckBoxCell;
-                    if (cell.Value != cell.TrueValue)
-                    {
-                        string numer = row.Cells[1].Value.ToString();
-                        if (MessageBox.Show("Jesteś pewien, że chcesz usunąć klienta " + row.Cells[2].Value.ToString() + " " + row.Cells[3].Value.ToString() + "?", "Potwierdź", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                        {
-                           // baza.UsunFakture(Convert.ToInt32(numer));
-                        }
-                    }
+                    EdycjaFaktury ef = new EdycjaFaktury();
+                    ef.faktura = faktObj;      //po tym poznajemy, czy edytujemy, czy dodajemy
+                    ef.MdiParent = this.MdiParent;
+                    ef.Rodzic = this;
+                    ef.Show();
+                    ef.BringToFront();
                 }
-                DataTable dt = baza.wykonajSelect("SELECT * FROM Faktury");
-                this.dataGridView1.DataSource = dt;
             }
         }
     }

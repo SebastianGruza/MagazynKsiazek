@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MagazynKsiazek.Klasy
 {
-    class Klient
+    public class Klient
     {
         public int ID_Klienta { get; set; }
         public string Imie { get; set; }

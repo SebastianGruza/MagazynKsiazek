@@ -80,6 +80,53 @@ namespace MagazynKsiazek.Klasy
             }
         }
 
+        private Klient pobierzKlientaPoId(int p)
+        {
+
+            Klient klient = null;
+
+            try
+            {
+                SQLiteCommand cmd;
+                connection.Open();
+                cmd = connection.CreateCommand();
+                cmd.CommandText = "select k.ID_Klienta, k.Imie, k.Nazwisko, k.Email, k.Miejscowosc, k.Ulica, k.NrDomu, k.NrLokalu, k.KodPocztowy  " +
+                " from Klienci as k " +
+                " WHERE k.ID_Klienta = " + p;
+
+                SQLiteDataReader reader = cmd.ExecuteReader();
+
+                if (reader != null && reader.Read())
+                {
+                    klient = new Klient();
+                    klient.ID_Klienta = reader.GetInt32(0);
+                    klient.Imie = reader.GetString(1);
+                    klient.Nazwisko= reader.GetString(2);
+                    klient.Email = reader.GetString(3);
+                    klient.Miejscowosc = reader.GetString(4);
+                    klient.Ulica = reader.GetString(5);
+                    klient.NrDomu = reader.GetString(6);
+                    klient.NrLokalu = reader.GetString(7);
+                    klient.KodPocztowy = reader.GetString(8);
+
+                    reader.Close();
+                }
+
+                connection.Close();
+            }
+            catch (SQLiteException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex2)
+            {
+                MessageBox.Show(ex2.Message);
+            }
+
+            return klient;
+        }
+
+
         #endregion
 
         #region Ksiazka
@@ -147,6 +194,52 @@ namespace MagazynKsiazek.Klasy
         #endregion
 
         #region Faktura
+
+
+        private Ksiazki pobierzKsiazkePoId(int Id)
+        {
+
+            Ksiazki ksi = null;
+
+            try
+            {
+                SQLiteCommand cmd;
+                connection.Open();
+                cmd = connection.CreateCommand();
+                cmd.CommandText = "select k.ISBN, k.Tytul, k.Autor, k.Wydawnictwo, k.RokWydania, k.Gatunek, k.Ilosc, k.Cena  " +
+                " from ksiazki as k " +
+                " WHERE k.ISBN = " + Id;
+
+                SQLiteDataReader reader = cmd.ExecuteReader();
+
+                if (reader != null && reader.Read())
+                {
+                    ksi = new Ksiazki();
+                    ksi.ISBN = reader.GetInt32(0);
+                    ksi.Tytul = reader.GetString(1);
+                    ksi.DaneAutora = reader.GetString(2);
+                    ksi.Wydawnictwo = reader.GetString(3);
+                    ksi.RokWydania = reader.GetString(4);
+                    ksi.Gatunek = reader.GetString(5);
+                    ksi.Ilosc = reader.GetInt32(6);
+                    ksi.Cena = reader.GetDouble(7);
+                    reader.Close();
+                }
+
+                connection.Close();
+            }
+            catch (SQLiteException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex2)
+            {
+                MessageBox.Show(ex2.Message);
+            }
+
+            return ksi;
+
+        }
 
         internal IList<Faktura> pobierzListeFaktur()
         {
@@ -216,9 +309,9 @@ namespace MagazynKsiazek.Klasy
                 {
                     for (int j = 0; j < listaFaktur[i].listaSprzedanychKsiazek.Count; j++)
                     {
-                       // listaFaktur[i].listaSprzedanychKsiazek[j].ksi = pobierzKsiazkePoId(listaFaktur[i].listaSprzedanychKsiazek[j].IdTow);
+                        listaFaktur[i].listaSprzedanychKsiazek[j].ksi = pobierzKsiazkePoId(listaFaktur[i].listaSprzedanychKsiazek[j].IdKsiazki);
                     }
-
+                    listaFaktur[i].klient = pobierzKlientaPoId(listaFaktur[i].ID_Klienta);
                 }
             }
             catch (SQLiteException ex)
@@ -231,6 +324,7 @@ namespace MagazynKsiazek.Klasy
             }
             return listaFaktur;
         }
+
 
 
         /*

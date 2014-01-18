@@ -117,8 +117,8 @@ namespace MagazynKsiazek
                 kk.Wydawnictwo = WydawnictwoTB.Text;
                 kk.RokWydania = RokTB.Text;
                 kk.Gatunek = GatunekTB.Text;
-                kk.Ilosc = IloscTB.Text;
-                kk.Cena = CenaTB.Text;
+                kk.Ilosc = Int32.Parse(IloscTB.Text);
+                kk.Cena = Double.Parse(CenaTB.Text);
                 baza.DodajKsiazke(kk);
            
             }

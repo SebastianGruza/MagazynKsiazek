@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MagazynKsiazek.Klasy
 {
-    class Faktura
+    public class Faktura
     {
 
         public IList<SprzedazKsiazek> listaSprzedanychKsiazek = new List<SprzedazKsiazek>();

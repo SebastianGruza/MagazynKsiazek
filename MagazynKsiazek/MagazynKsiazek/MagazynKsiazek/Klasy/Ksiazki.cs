@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MagazynKsiazek.Klasy
 {
-    class Ksiazki
+    public class Ksiazki
     {
         public int ISBN { get; set; }
         public string Tytul { get; set; }
@@ -13,11 +13,11 @@ namespace MagazynKsiazek.Klasy
         public string Wydawnictwo { get; set; }
         public string RokWydania { get; set; }
         public string Gatunek { get; set; }
-        public string Ilosc { get; set; }
-        public string Cena { get; set; }
+        public Int32 Ilosc { get; set; }
+        public Double Cena { get; set; }
 
         public Ksiazki(int isbn, string tytul, string daneAutora, string wydawnictwo,
-        string rokwydania, string gatunek, string ilosc, string cena)
+        string rokwydania, string gatunek, Int32 ilosc, Double cena)
         {
             ISBN = isbn;
             Tytul = tytul;
