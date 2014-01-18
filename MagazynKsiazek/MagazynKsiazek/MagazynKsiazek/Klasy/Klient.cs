@@ -37,5 +37,10 @@ namespace MagazynKsiazek.Klasy
             // TODO: Complete member initialization
         }
 
+        public override string ToString()
+        {
+            return String.Format("{2,-3} {0,-12} {1,-15} ", Imie, Nazwisko, ID_Klienta);
+        }
+
     }
 }

@@ -170,7 +170,7 @@ namespace MagazynKsiazek
 
         private void button_StworzFakture(object sender, EventArgs e)
         {
-            EdycjaFaktury no = new EdycjaFaktury();
+            EdycjaFaktury no = new EdycjaFaktury(null);
             no.MdiParent = this.MdiParent;
             no.Rodzic = this;
             no.Show();
@@ -203,6 +203,7 @@ namespace MagazynKsiazek
             BazaDanych baza = new BazaDanych();
             IList<Faktura> listaFaktur=baza.pobierzListeFaktur();
 
+            this.dataGridView1.Rows.Clear();
 
             for (int i = 0; i < listaFaktur.Count; i++)
             {
@@ -240,8 +241,7 @@ namespace MagazynKsiazek
                 Faktura faktObj = this.dataGridView1.SelectedRows[0].Tag as Faktura;
                 if (faktObj != null)
                 {
-                    EdycjaFaktury ef = new EdycjaFaktury();
-                    ef.faktura = faktObj;      //po tym poznajemy, czy edytujemy, czy dodajemy
+                    EdycjaFaktury ef = new EdycjaFaktury(faktObj);
                     ef.MdiParent = this.MdiParent;
                     ef.Rodzic = this;
                     ef.Show();

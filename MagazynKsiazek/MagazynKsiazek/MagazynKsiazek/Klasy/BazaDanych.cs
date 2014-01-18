@@ -241,6 +241,51 @@ namespace MagazynKsiazek.Klasy
 
         }
 
+
+        internal IList<Ksiazki> pobierzListeKsiazek()
+        {
+
+            IList<Ksiazki> listaKsiazek = new List<Ksiazki>();
+
+            try
+            {
+                SQLiteCommand cmd;
+                connection.Open();
+                cmd = connection.CreateCommand();
+                cmd.CommandText = "select k.ISBN, k.Tytul, k.Autor, k.Wydawnictwo, k.RokWydania, k.Gatunek, k.Ilosc, k.Cena  " +
+                " from ksiazki as k ";
+
+                SQLiteDataReader reader = cmd.ExecuteReader();
+
+                while (reader != null && reader.Read())
+                {
+                    Ksiazki ksi = new Ksiazki();
+                    ksi = new Ksiazki();
+                    ksi.ISBN = reader.GetInt32(0);
+                    ksi.Tytul = reader.GetString(1);
+                    ksi.DaneAutora = reader.GetString(2);
+                    ksi.Wydawnictwo = reader.GetString(3);
+                    ksi.RokWydania = reader.GetString(4);
+                    ksi.Gatunek = reader.GetString(5);
+                    ksi.Ilosc = reader.GetInt32(6);
+                    ksi.Cena = reader.GetDouble(7);
+                    listaKsiazek.Add(ksi);
+                }
+                reader.Close();
+                connection.Close();
+            }
+            catch (SQLiteException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex2)
+            {
+                MessageBox.Show(ex2.Message);
+            }
+
+            return listaKsiazek;
+
+        }
         internal IList<Faktura> pobierzListeFaktur()
         {
             IList<Faktura> listaFaktur = new List<Faktura>();
@@ -323,6 +368,53 @@ namespace MagazynKsiazek.Klasy
                 MessageBox.Show(ex2.Message);
             }
             return listaFaktur;
+        }
+
+
+
+        internal IList<Klient> pobierzListeKlientow()
+        {
+            IList<Klient> listaKlientow = new List<Klient>();
+
+            try
+            {
+                SQLiteCommand cmd;
+                connection.Open();
+                cmd = connection.CreateCommand();
+                cmd.CommandText =
+                "select k. ID_Klienta, k.Imie, k.Nazwisko, k.Email, k.Miejscowosc, k.Ulica, k.NrDomu, k.NrLokalu, k.KodPocztowy " +
+                " from Klienci as k " +
+                " order by k.Nazwisko";
+
+                SQLiteDataReader reader = cmd.ExecuteReader();
+
+                while (reader != null && reader.Read())
+                {
+                    Klient klient = new Klient();
+                    klient.ID_Klienta = reader.GetInt32(0);
+                    klient.Imie = reader.GetString(1);
+                    klient.Nazwisko = reader.GetString(2);
+                    klient.Email = reader.GetString(3);
+                    klient.Miejscowosc = reader.GetString(4);
+                    klient.Ulica = reader.GetString(5);
+                    klient.NrDomu = reader.GetString(6);
+                    klient.NrLokalu = reader.GetString(7);
+                    klient.KodPocztowy = reader.GetString(8);
+                    listaKlientow.Add(klient);
+                }
+
+                reader.Close();
+                connection.Close();
+            }
+            catch (SQLiteException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex2)
+            {
+                MessageBox.Show(ex2.Message);
+            }
+            return listaKlientow;
         }
 
 

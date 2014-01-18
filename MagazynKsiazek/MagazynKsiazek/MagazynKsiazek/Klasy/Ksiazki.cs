@@ -35,6 +35,10 @@ namespace MagazynKsiazek.Klasy
             // TODO: Complete member initialization
         }
 
+        public override string ToString()
+        {
+            return String.Format("{0,-4} {1,-23} {2,-21} ", this.ISBN, this.Tytul, this.DaneAutora);
+        }
     }
 }
 

@@ -29,33 +29,33 @@
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtMiejscowosc = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtID = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtUlica = new System.Windows.Forms.TextBox();
+            this.txtKod = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.GListaTowarow = new System.Windows.Forms.DataGridView();
             this.lblCena = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.CISBN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CNazwa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CTytul = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CAutor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CIlosc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CenaSprzedaz = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CCenaRazem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button4 = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GListaTowarow)).BeginInit();
@@ -63,16 +63,16 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox4);
+            this.groupBox2.Controls.Add(this.txtMiejscowosc);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.comboBox1);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.textBox6);
+            this.groupBox2.Controls.Add(this.txtID);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.textBox3);
-            this.groupBox2.Controls.Add(this.textBox5);
+            this.groupBox2.Controls.Add(this.txtUlica);
+            this.groupBox2.Controls.Add(this.txtKod);
             this.groupBox2.Location = new System.Drawing.Point(454, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(331, 192);
@@ -80,14 +80,14 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Nabywca";
             // 
-            // textBox4
+            // txtMiejscowosc
             // 
-            this.textBox4.Location = new System.Drawing.Point(115, 109);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(200, 20);
-            this.textBox4.TabIndex = 18;
-            this.textBox4.TabStop = false;
+            this.txtMiejscowosc.Location = new System.Drawing.Point(115, 109);
+            this.txtMiejscowosc.Name = "txtMiejscowosc";
+            this.txtMiejscowosc.ReadOnly = true;
+            this.txtMiejscowosc.Size = new System.Drawing.Size(200, 20);
+            this.txtMiejscowosc.TabIndex = 18;
+            this.txtMiejscowosc.TabStop = false;
             // 
             // label2
             // 
@@ -100,12 +100,15 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(115, 29);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(200, 21);
             this.comboBox1.TabIndex = 7;
             this.comboBox1.TabStop = false;
+            this.comboBox1.Text = "Wybierz klienta z listy";
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -125,14 +128,14 @@
             this.label6.TabIndex = 15;
             this.label6.Text = "Miejscowość:";
             // 
-            // textBox6
+            // txtID
             // 
-            this.textBox6.Location = new System.Drawing.Point(115, 57);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(52, 20);
-            this.textBox6.TabIndex = 21;
-            this.textBox6.TabStop = false;
+            this.txtID.Location = new System.Drawing.Point(115, 57);
+            this.txtID.Name = "txtID";
+            this.txtID.ReadOnly = true;
+            this.txtID.Size = new System.Drawing.Size(52, 20);
+            this.txtID.TabIndex = 21;
+            this.txtID.TabStop = false;
             // 
             // label5
             // 
@@ -152,23 +155,23 @@
             this.label8.TabIndex = 20;
             this.label8.Text = "ID klienta";
             // 
-            // textBox3
+            // txtUlica
             // 
-            this.textBox3.Location = new System.Drawing.Point(115, 83);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(200, 20);
-            this.textBox3.TabIndex = 17;
-            this.textBox3.TabStop = false;
+            this.txtUlica.Location = new System.Drawing.Point(115, 83);
+            this.txtUlica.Name = "txtUlica";
+            this.txtUlica.ReadOnly = true;
+            this.txtUlica.Size = new System.Drawing.Size(200, 20);
+            this.txtUlica.TabIndex = 17;
+            this.txtUlica.TabStop = false;
             // 
-            // textBox5
+            // txtKod
             // 
-            this.textBox5.Location = new System.Drawing.Point(115, 143);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(52, 20);
-            this.textBox5.TabIndex = 19;
-            this.textBox5.TabStop = false;
+            this.txtKod.Location = new System.Drawing.Point(115, 143);
+            this.txtKod.Name = "txtKod";
+            this.txtKod.ReadOnly = true;
+            this.txtKod.Size = new System.Drawing.Size(52, 20);
+            this.txtKod.TabIndex = 19;
+            this.txtKod.TabStop = false;
             // 
             // label3
             // 
@@ -190,15 +193,30 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dodaj książkę do faktury";
             // 
+            // listBox1
+            // 
+            this.listBox1.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.listBox1.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.listBox1.ForeColor = System.Drawing.SystemColors.Window;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.HorizontalScrollbar = true;
+            this.listBox1.ItemHeight = 14;
+            this.listBox1.Location = new System.Drawing.Point(23, 19);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.listBox1.Size = new System.Drawing.Size(406, 88);
+            this.listBox1.TabIndex = 30;
+            // 
             // button1
             // 
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button1.Location = new System.Drawing.Point(351, 90);
+            this.button1.Location = new System.Drawing.Point(160, 113);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(79, 47);
+            this.button1.Size = new System.Drawing.Size(133, 36);
             this.button1.TabIndex = 5;
             this.button1.Text = "Dodaj";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dateTimePicker1
             // 
@@ -213,17 +231,17 @@
             this.GListaTowarow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GListaTowarow.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CISBN,
-            this.CNazwa,
+            this.CTytul,
             this.CAutor,
             this.CIlosc,
             this.CenaSprzedaz,
             this.CCenaRazem});
-            this.GListaTowarow.Location = new System.Drawing.Point(12, 210);
+            this.GListaTowarow.Location = new System.Drawing.Point(12, 216);
             this.GListaTowarow.MultiSelect = false;
             this.GListaTowarow.Name = "GListaTowarow";
             this.GListaTowarow.RowHeadersVisible = false;
             this.GListaTowarow.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.GListaTowarow.Size = new System.Drawing.Size(633, 141);
+            this.GListaTowarow.Size = new System.Drawing.Size(633, 211);
             this.GListaTowarow.TabIndex = 32;
             // 
             // lblCena
@@ -246,20 +264,6 @@
             this.label11.TabIndex = 33;
             this.label11.Text = "Cena razem:";
             // 
-            // listBox1
-            // 
-            this.listBox1.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.listBox1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.listBox1.ForeColor = System.Drawing.SystemColors.Window;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.HorizontalScrollbar = true;
-            this.listBox1.ItemHeight = 19;
-            this.listBox1.Location = new System.Drawing.Point(23, 19);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.listBox1.Size = new System.Drawing.Size(322, 118);
-            this.listBox1.TabIndex = 30;
-            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(669, 216);
@@ -268,6 +272,7 @@
             this.button2.TabIndex = 35;
             this.button2.Text = "Edycja pozycji";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -278,6 +283,16 @@
             this.button3.Text = "Usuń pozycję";
             this.button3.UseVisualStyleBackColor = true;
             // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button4.Location = new System.Drawing.Point(275, 12);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(166, 37);
+            this.button4.TabIndex = 37;
+            this.button4.Text = "Zapisz fakturę w bazie";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
             // CISBN
             // 
             this.CISBN.FillWeight = 150F;
@@ -286,18 +301,19 @@
             this.CISBN.ReadOnly = true;
             this.CISBN.Width = 60;
             // 
-            // CNazwa
+            // CTytul
             // 
-            this.CNazwa.HeaderText = "Nazwa";
-            this.CNazwa.Name = "CNazwa";
-            this.CNazwa.ReadOnly = true;
-            this.CNazwa.Width = 200;
+            this.CTytul.HeaderText = "Tytuł";
+            this.CTytul.Name = "CTytul";
+            this.CTytul.ReadOnly = true;
+            this.CTytul.Width = 150;
             // 
             // CAutor
             // 
             this.CAutor.HeaderText = "Autor";
             this.CAutor.Name = "CAutor";
             this.CAutor.ReadOnly = true;
+            this.CAutor.Width = 150;
             // 
             // CIlosc
             // 
@@ -319,21 +335,11 @@
             this.CCenaRazem.Name = "CCenaRazem";
             this.CCenaRazem.ReadOnly = true;
             // 
-            // button4
-            // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button4.Location = new System.Drawing.Point(275, 5);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(166, 44);
-            this.button4.TabIndex = 37;
-            this.button4.Text = "Zapisz fakturę w bazie";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
             // EdycjaFaktury
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(820, 360);
+            this.ClientSize = new System.Drawing.Size(820, 439);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -358,32 +364,32 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtMiejscowosc;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtUlica;
+        private System.Windows.Forms.TextBox txtKod;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.DataGridView GListaTowarow;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CISBN;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CNazwa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CAutor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CIlosc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CenaSprzedaz;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CCenaRazem;
         private System.Windows.Forms.Label lblCena;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CISBN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CTytul;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CAutor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CIlosc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CenaSprzedaz;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CCenaRazem;
     }
 }
