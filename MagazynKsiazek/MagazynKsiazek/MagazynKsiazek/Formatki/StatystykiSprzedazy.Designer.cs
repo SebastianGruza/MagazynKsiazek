@@ -44,7 +44,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -198,18 +197,18 @@
             // 
             // reportViewer1
             // 
-            this.reportViewer1.Location = new System.Drawing.Point(12, 156);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(882, 320);
-            this.reportViewer1.TabIndex = 5;
-            this.reportViewer1.TabStop = false;
+           // this.reportViewer1.Location = new System.Drawing.Point(12, 156);
+          //  this.reportViewer1.Name = "reportViewer1";
+           // this.reportViewer1.Size = new System.Drawing.Size(882, 320);
+           // this.reportViewer1.TabIndex = 5;
+          //  this.reportViewer1.TabStop = false;
             // 
             // StatystykiSprzedazy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(906, 488);
-            this.Controls.Add(this.reportViewer1);
+          //  this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
@@ -248,6 +247,5 @@
         private System.Windows.Forms.ToolStripMenuItem startToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem zamknijToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem wylogujToolStripMenuItem;
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
     }
 }

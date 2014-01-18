@@ -51,7 +51,7 @@ namespace MagazynKsiazek
         {
             
             Hide();
-            DodajKsiazke ks = new DodajKsiazke();
+            RokWydaniaTB ks = new RokWydaniaTB();
             ks.ShowDialog();
         }
 
@@ -101,7 +101,7 @@ namespace MagazynKsiazek
         private void StatystykiSprzedazy_Load(object sender, EventArgs e)
         {
 
-            this.reportViewer1.RefreshReport();
+           // this.reportViewer1.RefreshReport();
         }
     }
 }

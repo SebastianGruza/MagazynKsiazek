@@ -79,6 +79,7 @@
       <DependentUpon>OknoLogowania.cs</DependentUpon>
     </Compile>
     <Compile Include="Klasy\BazaDanych.cs" />
+    <Compile Include="Klasy\Faktura.cs" />
     <Compile Include="Klasy\Klient.cs" />
     <Compile Include="Klasy\Ksiazki.cs" />
     <Compile Include="Program.cs" />
