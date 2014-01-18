@@ -112,7 +112,7 @@ namespace MagazynKsiazek.Klasy
             using (connection)
             {
                 SQLiteCommand myCommand = connection.CreateCommand();
-                myCommand.CommandText = "INSERT INTO Ksiazki(Tytul, ID_Autora, Wydawnictwo, RokWydania, Gatunek, Ilosc, Cena) VALUES('" + ksiazka.Tytul + "','" + ksiazka.DaneAutora + "','" + ksiazka.Wydawnictwo + "','" + ksiazka.RokWydania + "','" + ksiazka.Gatunek + "','" + ksiazka.Ilosc + "','" + ksiazka.Cena + "')";
+                myCommand.CommandText = "INSERT INTO Ksiazki(Tytul, Autor, Wydawnictwo, RokWydania, Gatunek, Ilosc, Cena) VALUES('" + ksiazka.Tytul + "','" + ksiazka.DaneAutora + "','" + ksiazka.Wydawnictwo + "','" + ksiazka.RokWydania + "','" + ksiazka.Gatunek + "','" + ksiazka.Ilosc + "','" + ksiazka.Cena + "')";
                 connection.Open();
                 myCommand.ExecuteNonQuery();
                 connection.Close();

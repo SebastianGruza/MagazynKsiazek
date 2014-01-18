@@ -180,8 +180,8 @@ namespace MagazynKsiazek
             string text = WyszukajTB.Text;
             BazaDanych baza = new BazaDanych();
             DataTable dt = baza.wykonajSelect("SELECT * FROM Ksiazki WHERE Tytul LIKE '" +
-                text + "%' OR ID_Autora LIKE '%" + text + "' OR Wydawnictwo LIKE '%" + text + "%' OR RokWydania LIKE '" +
-                text + "%' OR Gatunek LIKE '%" + text + "' OR Cena LIKE '%" + text + "%'");
+                text + "%' OR Autor LIKE '" + text + "%' OR Wydawnictwo LIKE '" + text + "%' OR RokWydania LIKE '" +
+                text + "%' OR Gatunek LIKE '%" + text + "' OR Cena LIKE '" + text + "%'");
             this.dataGridView1.DataSource = dt;
         }
         private void comboBox_Gatunek(object sender, EventArgs e)
