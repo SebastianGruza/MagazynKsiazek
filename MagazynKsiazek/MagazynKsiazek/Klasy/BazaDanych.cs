@@ -456,65 +456,67 @@ namespace MagazynKsiazek.Klasy
 
 
         /*
-        public DataTable wykonajSelectFaktura(string query)
-        {
-            DataTable dt = new DataTable();
-            SQLiteDataAdapter da;
+       public DataTable wykonajSelectFaktura(string query)
+       {
+           DataTable dt = new DataTable();
+           SQLiteDataAdapter da;
 
-            try
-            {
-                SQLiteCommand cmd;
-                connection.Open();
-                cmd = connection.CreateCommand();
-                cmd.CommandText = query;
-                da = new SQLiteDataAdapter(cmd);
-                da.Fill(dt);
-                connection.Close();
-            }
-            catch (SQLiteException ex)
-            {
-            }
-            catch (Exception ex2)
-            {
-            }
+           try
+           {
+               SQLiteCommand cmd;
+               connection.Open();
+               cmd = connection.CreateCommand();
+               cmd.CommandText = query;
+               da = new SQLiteDataAdapter(cmd);
+               da.Fill(dt);
+               connection.Close();
+           }
+           catch (SQLiteException ex)
+           {
+           }
+           catch (Exception ex2)
+           {
+           }
 
-            return dt;
-        }
-        public void DodajFakture(Faktura faktura)
-        {
-            using (connection)
-            {
-                SQLiteCommand myCommand = connection.CreateCommand();
-                myCommand.CommandText = "INSERT INTO Faktury(ID_Klienta, ID_Faktury, Data_Wystawienia, Nr_Faktury, Klient, Towar, Ilosc, Cena) VALUES('" + faktura.ID_Klienta + "','" + faktura.ID_Faktury + "','" + faktura.Data_Wystawienia + "','" + faktura.Nr_Faktury + "','" + faktura.Klient + "','" + faktura.Towar + "','" + faktura.Ilosc + "','" + faktura.Cena + "')";
-                connection.Open();
-                myCommand.ExecuteNonQuery();
-                connection.Close();
-            }
-        }
-        public void UsunFakture(int id_faktury)
-        {
-            using (connection)
-            {
-                SQLiteCommand myCommand = connection.CreateCommand();
-                myCommand.CommandText = "DELETE FROM Faktury WHERE ID_Faktury = '" + id_faktury + "'";
-                connection.Open();
-                myCommand.ExecuteNonQuery();
-                connection.Close();
-            }
-        }
-        public void EdytujFakture(int id_faktury, string colName, string newValue)
-        {
-            using (connection)
-            {
-                SQLiteCommand myCommand = connection.CreateCommand();
-                myCommand.CommandText = "UPDATE Faktury SET " + colName + " = '" + newValue + "' WHERE ID_Faktury = '" + id_faktury + "'";
-                connection.Open();
-                myCommand.ExecuteNonQuery();
-                connection.Close();
-            }
-        }
+           return dt;
+       }
+
+       
+       public void DodajFakture(Faktura faktura)
+       {
+           using (connection)
+           {
+               SQLiteCommand myCommand = connection.CreateCommand();
+               myCommand.CommandText = "INSERT INTO Faktury(ID_Klienta, ID_Faktury, Data_Wystawienia, Nr_Faktury, Klient, Towar, Ilosc, Cena) VALUES('" + faktura.ID_Klienta + "','" + faktura.ID_Faktury + "','" + faktura.Data_Wystawienia + "','" + faktura.Nr_Faktury + "','" + faktura.Klient + "','" + faktura.Towar + "','" + faktura.Ilosc + "','" + faktura.Cena + "')";
+               connection.Open();
+               myCommand.ExecuteNonQuery();
+               connection.Close();
+           }
+       }
+       public void UsunFakture(int id_faktury)
+       {
+           using (connection)
+           {
+               SQLiteCommand myCommand = connection.CreateCommand();
+               myCommand.CommandText = "DELETE FROM Faktury WHERE ID_Faktury = '" + id_faktury + "'";
+               connection.Open();
+               myCommand.ExecuteNonQuery();
+               connection.Close();
+           }
+       }
+       public void EdytujFakture(int id_faktury, string colName, string newValue)
+       {
+           using (connection)
+           {
+               SQLiteCommand myCommand = connection.CreateCommand();
+               myCommand.CommandText = "UPDATE Faktury SET " + colName + " = '" + newValue + "' WHERE ID_Faktury = '" + id_faktury + "'";
+               connection.Open();
+               myCommand.ExecuteNonQuery();
+               connection.Close();
+           }
+       }
         
-        */
+       */
         #endregion
 
     }

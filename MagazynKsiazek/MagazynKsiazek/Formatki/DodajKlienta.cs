@@ -172,12 +172,12 @@ namespace MagazynKsiazek
 
         private void ListaBT_Click(object sender, EventArgs e)
         {
-            /*
+            
             Column1.Visible = true;
             BazaDanych baza = new BazaDanych();
-            DataTable dt = baza.wykonajSelectFaktura("SELECT * FROM Klienci");
+            DataTable dt = baza.wykonajSelect("SELECT * FROM Klienci");
             this.dataGridView1.DataSource = dt;
-             */
+             
         }
 
         private void DodajBT_Click(object sender, EventArgs e)
