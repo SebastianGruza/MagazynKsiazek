@@ -65,7 +65,7 @@ namespace MagazynKsiazek.Klasy
             {
                 IFormatProvider FormatProvider = new System.Globalization.CultureInfo("");
                 StringBuilder SB = new StringBuilder();
-                SB.AppendFormat(FormatProvider, "{0}", this.Ilosc);
+                SB.AppendFormat(FormatProvider, "{0}", this.Cena);
                 return SB.ToString();
             }
         }

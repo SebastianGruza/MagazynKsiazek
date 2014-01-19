@@ -9,11 +9,24 @@ namespace MagazynKsiazek.Klasy
     {
 
         public IList<SprzedazKsiazek> listaSprzedanychKsiazek = new List<SprzedazKsiazek>();
-        public Klient klient = new Klient();
+        public Klient klient=null;
         public Faktura()
         {
             Data = DateTime.Now;
             Id = -1;
+        }
+
+        private int _Nr;
+        public int Nr
+        {
+            get
+            {
+                return _Nr;
+            }
+            set
+            {
+                this._Nr = value;
+            }
         }
 
         private int _Id;

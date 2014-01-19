@@ -30,38 +30,39 @@
         {
             this.VIlosc = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
-            this.VTowar = new System.Windows.Forms.ComboBox();
-            this.VCena = new System.Windows.Forms.TextBox();
+            this.VPozycja = new System.Windows.Forms.ComboBox();
+            this.VCenaRazem = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.BZapisz = new System.Windows.Forms.Button();
             this.BAnuluj = new System.Windows.Forms.Button();
-            this.VNazwa = new System.Windows.Forms.TextBox();
-            this.VKod = new System.Windows.Forms.TextBox();
+            this.VTytul = new System.Windows.Forms.TextBox();
+            this.VAutor = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.VIloscMag = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.VCenaHurt = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.VGat = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.VRok = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.VWydawnictwo = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.VCenaZak = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.VIlosc)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VCenaZak)).BeginInit();
             this.SuspendLayout();
             // 
             // VIlosc
             // 
             this.VIlosc.Location = new System.Drawing.Point(135, 220);
             this.VIlosc.Name = "VIlosc";
-            this.VIlosc.Size = new System.Drawing.Size(254, 20);
+            this.VIlosc.Size = new System.Drawing.Size(277, 20);
             this.VIlosc.TabIndex = 23;
+            this.VIlosc.ValueChanged += new System.EventHandler(this.VIlosc_ValueChanged);
             // 
             // label1
             // 
@@ -72,22 +73,23 @@
             this.label1.TabIndex = 30;
             this.label1.Text = "Książka:";
             // 
-            // VTowar
+            // VPozycja
             // 
-            this.VTowar.FormattingEnabled = true;
-            this.VTowar.Location = new System.Drawing.Point(135, 12);
-            this.VTowar.Name = "VTowar";
-            this.VTowar.Size = new System.Drawing.Size(254, 21);
-            this.VTowar.TabIndex = 18;
-            this.VTowar.Text = "Wybierz książkę z listy";
+            this.VPozycja.FormattingEnabled = true;
+            this.VPozycja.Location = new System.Drawing.Point(135, 12);
+            this.VPozycja.Name = "VPozycja";
+            this.VPozycja.Size = new System.Drawing.Size(277, 21);
+            this.VPozycja.TabIndex = 18;
+            this.VPozycja.Text = "Wybierz książkę z listy";
+            this.VPozycja.SelectedIndexChanged += new System.EventHandler(this.VPozycja_SelectedIndexChanged);
             // 
-            // VCena
+            // VCenaRazem
             // 
-            this.VCena.Location = new System.Drawing.Point(135, 272);
-            this.VCena.Name = "VCena";
-            this.VCena.ReadOnly = true;
-            this.VCena.Size = new System.Drawing.Size(254, 20);
-            this.VCena.TabIndex = 24;
+            this.VCenaRazem.Location = new System.Drawing.Point(135, 272);
+            this.VCenaRazem.Name = "VCenaRazem";
+            this.VCenaRazem.ReadOnly = true;
+            this.VCenaRazem.Size = new System.Drawing.Size(277, 20);
+            this.VCenaRazem.TabIndex = 24;
             // 
             // label5
             // 
@@ -116,6 +118,7 @@
             this.BZapisz.TabIndex = 26;
             this.BZapisz.Text = "Zapisz";
             this.BZapisz.UseVisualStyleBackColor = true;
+            this.BZapisz.Click += new System.EventHandler(this.BZapisz_Click);
             // 
             // BAnuluj
             // 
@@ -126,22 +129,23 @@
             this.BAnuluj.TabIndex = 27;
             this.BAnuluj.Text = "Anuluj";
             this.BAnuluj.UseVisualStyleBackColor = true;
+            this.BAnuluj.Click += new System.EventHandler(this.BAnuluj_Click);
             // 
-            // VNazwa
+            // VTytul
             // 
-            this.VNazwa.Location = new System.Drawing.Point(135, 65);
-            this.VNazwa.Name = "VNazwa";
-            this.VNazwa.ReadOnly = true;
-            this.VNazwa.Size = new System.Drawing.Size(254, 20);
-            this.VNazwa.TabIndex = 22;
+            this.VTytul.Location = new System.Drawing.Point(135, 65);
+            this.VTytul.Name = "VTytul";
+            this.VTytul.ReadOnly = true;
+            this.VTytul.Size = new System.Drawing.Size(277, 20);
+            this.VTytul.TabIndex = 22;
             // 
-            // VKod
+            // VAutor
             // 
-            this.VKod.Location = new System.Drawing.Point(135, 39);
-            this.VKod.Name = "VKod";
-            this.VKod.ReadOnly = true;
-            this.VKod.Size = new System.Drawing.Size(254, 20);
-            this.VKod.TabIndex = 20;
+            this.VAutor.Location = new System.Drawing.Point(135, 39);
+            this.VAutor.Name = "VAutor";
+            this.VAutor.ReadOnly = true;
+            this.VAutor.Size = new System.Drawing.Size(277, 20);
+            this.VAutor.TabIndex = 20;
             // 
             // label3
             // 
@@ -170,13 +174,13 @@
             this.label4.TabIndex = 32;
             this.label4.Text = "Cena za sztukę:";
             // 
-            // textBox2
+            // VIloscMag
             // 
-            this.textBox2.Location = new System.Drawing.Point(135, 91);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(254, 20);
-            this.textBox2.TabIndex = 33;
+            this.VIloscMag.Location = new System.Drawing.Point(135, 91);
+            this.VIloscMag.Name = "VIloscMag";
+            this.VIloscMag.ReadOnly = true;
+            this.VIloscMag.Size = new System.Drawing.Size(277, 20);
+            this.VIloscMag.TabIndex = 33;
             // 
             // label7
             // 
@@ -187,13 +191,13 @@
             this.label7.TabIndex = 34;
             this.label7.Text = "Ilość w magazynie:";
             // 
-            // textBox3
+            // VCenaHurt
             // 
-            this.textBox3.Location = new System.Drawing.Point(135, 117);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(254, 20);
-            this.textBox3.TabIndex = 35;
+            this.VCenaHurt.Location = new System.Drawing.Point(135, 117);
+            this.VCenaHurt.Name = "VCenaHurt";
+            this.VCenaHurt.ReadOnly = true;
+            this.VCenaHurt.Size = new System.Drawing.Size(277, 20);
+            this.VCenaHurt.TabIndex = 35;
             // 
             // label8
             // 
@@ -204,14 +208,14 @@
             this.label8.TabIndex = 36;
             this.label8.Text = "Cena hurtowa:";
             // 
-            // textBox4
+            // VGat
             // 
-            this.textBox4.Location = new System.Drawing.Point(135, 143);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(254, 20);
-            this.textBox4.TabIndex = 37;
-            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+            this.VGat.Location = new System.Drawing.Point(135, 143);
+            this.VGat.Name = "VGat";
+            this.VGat.ReadOnly = true;
+            this.VGat.Size = new System.Drawing.Size(277, 20);
+            this.VGat.TabIndex = 37;
+            this.VGat.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // label9
             // 
@@ -223,13 +227,13 @@
             this.label9.Text = "Gatunek:";
             this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
-            // textBox5
+            // VRok
             // 
-            this.textBox5.Location = new System.Drawing.Point(135, 169);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(254, 20);
-            this.textBox5.TabIndex = 39;
+            this.VRok.Location = new System.Drawing.Point(135, 169);
+            this.VRok.Name = "VRok";
+            this.VRok.ReadOnly = true;
+            this.VRok.Size = new System.Drawing.Size(277, 20);
+            this.VRok.TabIndex = 39;
             // 
             // label10
             // 
@@ -240,13 +244,13 @@
             this.label10.TabIndex = 40;
             this.label10.Text = "Rok wydania:";
             // 
-            // textBox6
+            // VWydawnictwo
             // 
-            this.textBox6.Location = new System.Drawing.Point(135, 195);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(254, 20);
-            this.textBox6.TabIndex = 41;
+            this.VWydawnictwo.Location = new System.Drawing.Point(135, 195);
+            this.VWydawnictwo.Name = "VWydawnictwo";
+            this.VWydawnictwo.ReadOnly = true;
+            this.VWydawnictwo.Size = new System.Drawing.Size(277, 20);
+            this.VWydawnictwo.TabIndex = 41;
             // 
             // label11
             // 
@@ -257,47 +261,53 @@
             this.label11.TabIndex = 42;
             this.label11.Text = "Wydawnictwo:";
             // 
-            // numericUpDown1
+            // VCenaZak
             // 
-            this.numericUpDown1.DecimalPlaces = 2;
-            this.numericUpDown1.Location = new System.Drawing.Point(135, 246);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(254, 20);
-            this.numericUpDown1.TabIndex = 43;
+            this.VCenaZak.DecimalPlaces = 2;
+            this.VCenaZak.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            65536});
+            this.VCenaZak.Location = new System.Drawing.Point(135, 246);
+            this.VCenaZak.Name = "VCenaZak";
+            this.VCenaZak.Size = new System.Drawing.Size(277, 20);
+            this.VCenaZak.TabIndex = 43;
+            this.VCenaZak.ValueChanged += new System.EventHandler(this.VCenaZak_ValueChanged);
             // 
             // EdycjaPozycji
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(424, 352);
-            this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.VCenaZak);
+            this.Controls.Add(this.VWydawnictwo);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.VRok);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.VGat);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.VCenaHurt);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.VIloscMag);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.VIlosc);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.VTowar);
-            this.Controls.Add(this.VCena);
+            this.Controls.Add(this.VPozycja);
+            this.Controls.Add(this.VCenaRazem);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.BZapisz);
             this.Controls.Add(this.BAnuluj);
-            this.Controls.Add(this.VNazwa);
-            this.Controls.Add(this.VKod);
+            this.Controls.Add(this.VTytul);
+            this.Controls.Add(this.VAutor);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Name = "EdycjaPozycji";
             this.Text = "Edycja pozycji";
             ((System.ComponentModel.ISupportInitialize)(this.VIlosc)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VCenaZak)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -307,27 +317,27 @@
 
         private System.Windows.Forms.NumericUpDown VIlosc;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox VTowar;
-        private System.Windows.Forms.TextBox VCena;
+        private System.Windows.Forms.ComboBox VPozycja;
+        private System.Windows.Forms.TextBox VCenaRazem;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button BZapisz;
         private System.Windows.Forms.Button BAnuluj;
-        private System.Windows.Forms.TextBox VNazwa;
-        private System.Windows.Forms.TextBox VKod;
+        private System.Windows.Forms.TextBox VTytul;
+        private System.Windows.Forms.TextBox VAutor;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox VIloscMag;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox VCenaHurt;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox VGat;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox VRok;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox VWydawnictwo;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown VCenaZak;
     }
 }

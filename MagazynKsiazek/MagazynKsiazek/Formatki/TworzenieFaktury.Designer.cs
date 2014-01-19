@@ -39,15 +39,15 @@
             this.button5 = new System.Windows.Forms.Button();
             this.btnUsun = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Cena = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LiczbaKsiazek = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ImieNazwisko = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID_kl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnEdycja = new System.Windows.Forms.Button();
+            this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID_kl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ImieNazwisko = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LiczbaKsiazek = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cena = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -125,7 +125,7 @@
             // button5
             // 
             this.button5.Location = new System.Drawing.Point(822, 44);
-            this.button5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(76, 64);
             this.button5.TabIndex = 30;
@@ -136,7 +136,7 @@
             // btnUsun
             // 
             this.btnUsun.Location = new System.Drawing.Point(822, 270);
-            this.btnUsun.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUsun.Margin = new System.Windows.Forms.Padding(2);
             this.btnUsun.Name = "btnUsun";
             this.btnUsun.Size = new System.Drawing.Size(75, 60);
             this.btnUsun.TabIndex = 31;
@@ -166,49 +166,6 @@
             this.dataGridView1.TabStop = false;
             this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_TabelaFaktur);
             // 
-            // Cena
-            // 
-            this.Cena.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Cena.HeaderText = "Cena faktury";
-            this.Cena.Name = "Cena";
-            // 
-            // LiczbaKsiazek
-            // 
-            this.LiczbaKsiazek.HeaderText = "Liczba różnych pozycji";
-            this.LiczbaKsiazek.Name = "LiczbaKsiazek";
-            this.LiczbaKsiazek.Width = 150;
-            // 
-            // Data
-            // 
-            this.Data.HeaderText = "Data wystawienia";
-            this.Data.Name = "Data";
-            this.Data.Width = 120;
-            // 
-            // ImieNazwisko
-            // 
-            this.ImieNazwisko.HeaderText = "Imię i nazwisko klienta";
-            this.ImieNazwisko.Name = "ImieNazwisko";
-            this.ImieNazwisko.Width = 200;
-            // 
-            // ID_kl
-            // 
-            this.ID_kl.HeaderText = "ID klienta";
-            this.ID_kl.Name = "ID_kl";
-            this.ID_kl.Width = 90;
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID faktury";
-            this.ID.Name = "ID";
-            this.ID.Width = 90;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "";
-            this.Column1.Name = "Column1";
-            this.Column1.Visible = false;
-            this.Column1.Width = 40;
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.dataGridView1);
@@ -229,6 +186,49 @@
             this.btnEdycja.Text = "Edytuj fakturę";
             this.btnEdycja.UseVisualStyleBackColor = true;
             this.btnEdycja.Click += new System.EventHandler(this.btnEdycja_Click);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "";
+            this.Column1.Name = "Column1";
+            this.Column1.Visible = false;
+            this.Column1.Width = 40;
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "Nr faktury";
+            this.ID.Name = "ID";
+            this.ID.Width = 90;
+            // 
+            // ID_kl
+            // 
+            this.ID_kl.HeaderText = "ID klienta";
+            this.ID_kl.Name = "ID_kl";
+            this.ID_kl.Width = 90;
+            // 
+            // ImieNazwisko
+            // 
+            this.ImieNazwisko.HeaderText = "Imię i nazwisko klienta";
+            this.ImieNazwisko.Name = "ImieNazwisko";
+            this.ImieNazwisko.Width = 200;
+            // 
+            // Data
+            // 
+            this.Data.HeaderText = "Data wystawienia";
+            this.Data.Name = "Data";
+            this.Data.Width = 120;
+            // 
+            // LiczbaKsiazek
+            // 
+            this.LiczbaKsiazek.HeaderText = "Liczba różnych pozycji";
+            this.LiczbaKsiazek.Name = "LiczbaKsiazek";
+            this.LiczbaKsiazek.Width = 150;
+            // 
+            // Cena
+            // 
+            this.Cena.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Cena.HeaderText = "Cena faktury";
+            this.Cena.Name = "Cena";
             // 
             // TworzenieFaktury
             // 
@@ -278,6 +278,8 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button btnUsun;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button btnEdycja;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID_kl;
@@ -285,7 +287,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Data;
         private System.Windows.Forms.DataGridViewTextBoxColumn LiczbaKsiazek;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cena;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button btnEdycja;
     }
 }

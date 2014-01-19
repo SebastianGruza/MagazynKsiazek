@@ -197,7 +197,7 @@ namespace MagazynKsiazek
             Application.Exit();
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        public void button5_Click(object sender, EventArgs e)
         {
             //Column1.Visible = true;
             BazaDanych baza = new BazaDanych();
@@ -211,7 +211,7 @@ namespace MagazynKsiazek
                 wiersz.CreateCells(this.dataGridView1);
                 Faktura f = listaFaktur[i];
                 wiersz.Tag = f;
-                wiersz.Cells[1].Value = f.Id;
+                wiersz.Cells[1].Value = f.Nr;
                 wiersz.Cells[2].Value = f.ID_Klienta;
                 wiersz.Cells[3].Value = f.klient.Imie + " " + f.klient.Nazwisko;
                 wiersz.Cells[4].Value = f.Data.ToShortDateString();
@@ -225,7 +225,24 @@ namespace MagazynKsiazek
 
         private void button6_Click(object sender, EventArgs e)
         {
-           
+            if (this.dataGridView1.SelectedRows.Count > 0)
+            {
+                if (MessageBox.Show("Czy chcesz usunąć zaznaczoną fakturę?",
+                    "Kasowanie faktury",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    Faktura faktura = this.dataGridView1.SelectedRows[0].Tag as Faktura;
+                    if (faktura != null)
+                    {
+                        BazaDanych db = new BazaDanych();
+                        db.UsunFakture(faktura.Id);
+                        this.dataGridView1.Rows.Remove(this.dataGridView1.SelectedRows[0]);
+                    }
+
+                }
+
+            }
            
         }
 

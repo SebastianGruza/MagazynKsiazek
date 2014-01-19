@@ -127,6 +127,52 @@ namespace MagazynKsiazek.Klasy
         }
 
 
+        internal IList<Klient> pobierzListeKlientow()
+        {
+            IList<Klient> listaKlientow = new List<Klient>();
+
+            try
+            {
+                SQLiteCommand cmd;
+                connection.Open();
+                cmd = connection.CreateCommand();
+                cmd.CommandText =
+                "select k. ID_Klienta, k.Imie, k.Nazwisko, k.Email, k.Miejscowosc, k.Ulica, k.NrDomu, k.NrLokalu, k.KodPocztowy " +
+                " from Klienci as k " +
+                " order by k.Nazwisko";
+
+                SQLiteDataReader reader = cmd.ExecuteReader();
+
+                while (reader != null && reader.Read())
+                {
+                    Klient klient = new Klient();
+                    klient.ID_Klienta = reader.GetInt32(0);
+                    klient.Imie = reader.GetString(1);
+                    klient.Nazwisko = reader.GetString(2);
+                    klient.Email = reader.GetString(3);
+                    klient.Miejscowosc = reader.GetString(4);
+                    klient.Ulica = reader.GetString(5);
+                    klient.NrDomu = reader.GetString(6);
+                    klient.NrLokalu = reader.GetString(7);
+                    klient.KodPocztowy = reader.GetString(8);
+                    listaKlientow.Add(klient);
+                }
+
+                reader.Close();
+                connection.Close();
+            }
+            catch (SQLiteException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex2)
+            {
+                MessageBox.Show(ex2.Message);
+            }
+            return listaKlientow;
+        }
+
+
         #endregion
 
         #region Ksiazka
@@ -276,7 +322,7 @@ namespace MagazynKsiazek.Klasy
             }
             catch (SQLiteException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Błąd bazy danych!\n" + ex.Message);
             }
             catch (Exception ex2)
             {
@@ -296,7 +342,7 @@ namespace MagazynKsiazek.Klasy
                 connection.Open();
                 cmd = connection.CreateCommand();
                 cmd.CommandText =
-                "select f.ID_Faktury,  f.Data_Wystawienia, f.ID_Klienta " +
+                "select f.ID_Faktury,  f.Data_Wystawienia, f.ID_Klienta, f.Nr_faktury " +
                 " from Faktury as f " +
                 " order by f.Data_Wystawienia";
 
@@ -309,6 +355,7 @@ namespace MagazynKsiazek.Klasy
                     fak.Id = reader.GetInt32(0); ;
                     fak.Data = reader.GetDateTime(1);
                     fak.ID_Klienta = reader.GetInt32(2);
+                    fak.Nr = reader.GetInt32(3);
 
                     listaFaktur.Add(fak);
                 }
@@ -341,7 +388,7 @@ namespace MagazynKsiazek.Klasy
                     sprz_ksi.Id = reader.GetInt32(1);
                     sprz_ksi.Ilosc = reader.GetInt32(2);
                     sprz_ksi.IdKsiazki = reader.GetInt32(3);
-                    sprz_ksi.Cena = reader.GetInt32(4);
+                    sprz_ksi.Cena = reader.GetDecimal(4);
 
 
                     listaFaktur[licznik].listaSprzedanychKsiazek.Add(sprz_ksi);
@@ -361,7 +408,7 @@ namespace MagazynKsiazek.Klasy
             }
             catch (SQLiteException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Błąd bazy danych!\n" + ex.Message);
             }
             catch (Exception ex2)
             {
@@ -371,52 +418,41 @@ namespace MagazynKsiazek.Klasy
         }
 
 
-
-        internal IList<Klient> pobierzListeKlientow()
+        public void UsunFakture(int id_faktury)
         {
-            IList<Klient> listaKlientow = new List<Klient>();
-
-            try
+            using (connection)
             {
-                SQLiteCommand cmd;
+                SQLiteCommand myCommand = connection.CreateCommand();
+                myCommand.CommandText = "DELETE FROM Faktury WHERE ID_Faktury = '" + id_faktury + "'";
                 connection.Open();
-                cmd = connection.CreateCommand();
-                cmd.CommandText =
-                "select k. ID_Klienta, k.Imie, k.Nazwisko, k.Email, k.Miejscowosc, k.Ulica, k.NrDomu, k.NrLokalu, k.KodPocztowy " +
-                " from Klienci as k " +
-                " order by k.Nazwisko";
-
-                SQLiteDataReader reader = cmd.ExecuteReader();
-
-                while (reader != null && reader.Read())
-                {
-                    Klient klient = new Klient();
-                    klient.ID_Klienta = reader.GetInt32(0);
-                    klient.Imie = reader.GetString(1);
-                    klient.Nazwisko = reader.GetString(2);
-                    klient.Email = reader.GetString(3);
-                    klient.Miejscowosc = reader.GetString(4);
-                    klient.Ulica = reader.GetString(5);
-                    klient.NrDomu = reader.GetString(6);
-                    klient.NrLokalu = reader.GetString(7);
-                    klient.KodPocztowy = reader.GetString(8);
-                    listaKlientow.Add(klient);
-                }
-
-                reader.Close();
+                myCommand.ExecuteNonQuery();
+                connection.Close();
+                myCommand.CommandText = "DELETE FROM Sprzedaz_Ksiazek WHERE ID_Faktury = '" + id_faktury + "'";
+                connection.Open();
+                myCommand.ExecuteNonQuery();
                 connection.Close();
             }
-            catch (SQLiteException ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            catch (Exception ex2)
-            {
-                MessageBox.Show(ex2.Message);
-            }
-            return listaKlientow;
         }
 
+        public void DodajFakture(Faktura faktura)
+        {
+            using (connection)
+            {
+                SQLiteCommand myCommand = connection.CreateCommand();
+                myCommand.CommandText = "INSERT INTO Faktury(ID_Klienta, ID_Faktury, Data_Wystawienia, Nr_Faktury) VALUES('" + faktura.ID_Klienta + "','" + faktura.Nr + "','" + faktura.Data.ToShortDateString() + "','" + faktura.Nr + "')";
+                connection.Open();
+                myCommand.ExecuteNonQuery();
+                connection.Close();
+
+                foreach (SprzedazKsiazek item in faktura.listaSprzedanychKsiazek)
+	            {
+                    myCommand.CommandText = "INSERT INTO Sprzedaz_Ksiazek(ID_Faktury, ID_Ksiazki, Liczba, Cena) VALUES('" + faktura.Nr + "','" + item.IdKsiazki + "','" + item.Ilosc + "','" + item.CenaString + "')";
+                    connection.Open();
+                    myCommand.ExecuteNonQuery();
+                    connection.Close();
+                }
+            }
+        }
 
 
         /*
