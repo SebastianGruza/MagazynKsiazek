@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using MagazynKsiazek.Klasy;
 
 namespace MagazynKsiazek
 {
@@ -23,9 +24,42 @@ namespace MagazynKsiazek
 
         }
 
+
         private void button_Wyswietl(object sender, EventArgs e)
         {
+            BazaDanych baza = new BazaDanych();
+            DateTime start = dateTimePicker1.Value;
+            DateTime koniec = dateTimePicker2.Value;
+            string zapytanie1 = @"select
+                                    k.Tytul as Tytuł, k.Autor as Autor, 
+                                    sum(sk.Liczba*sk.Cena) as 'Cena łączna',
+                                    sum(sk.Liczba) as 'Ile razy zakupiono'
+                                    from Sprzedaz_Ksiazek as sk 
+                                    LEFT JOIN Ksiazki as k ON (sk.ID_Ksiazki=k.ISBN)
+                                    LEFT JOIN Faktury as f ON (f.ID_Faktury=sk.ID_Faktury)
+                                    WHERE f.Data_Wystawienia  BETWEEN '" +
+                                    start.ToShortDateString() + "' AND '" + koniec.ToShortDateString() +
+                                    @"' group by sk.ID_Ksiazki
+                                    order by sum(sk.Liczba*sk.Cena)  desc";
 
+
+            string zapytanie2 = @"SELECT  
+                        strftime('%m-%Y', Data_Wystawienia) as 'Okres',                                
+                        sum(sk.Liczba*sk.Cena) as 'Łączna wartość sprzedanych książek',
+                        sum(sk.liczba * k.Cena) as 'Wartość zakupu książek',
+                        sum(sk.liczba * (sk.Cena - k.Cena)) as 'Łączny zysk',
+                        sum(sk.Liczba) as 'Liczba sprzedanych książek',
+                        count (DISTINCT f.ID_Faktury) as  'Liczba wystawionych faktur'                        
+                FROM    Faktury as f
+                LEFT JOIN  Sprzedaz_Ksiazek as sk ON (sk.ID_Faktury=f.ID_Faktury)
+                LEFT JOIN Ksiazki as k ON (sk.ID_Ksiazki=k.ISBN)
+                WHERE   f.Data_Wystawienia >= '" + start.ToShortDateString()  + @"'
+                AND     f.Data_Wystawienia <= '" + koniec.ToShortDateString() + @"'
+                GROUP BY strftime('%m-%Y', f.Data_Wystawienia)
+                ORDER BY strftime('%Y', f.Data_Wystawienia), strftime('%m', f.Data_Wystawienia);";
+
+            DataTable dt = baza.wykonajSelect(zapytanie2);
+            this.dataGridView1.DataSource = dt;
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)

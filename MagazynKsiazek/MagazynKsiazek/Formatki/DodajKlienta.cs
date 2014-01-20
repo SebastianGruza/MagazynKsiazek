@@ -110,7 +110,7 @@ namespace MagazynKsiazek
                 KodPocztTB.BackColor = new Color();
                 KodPocztTB.BackColor = Color.White;
             }
-            if(w1 == false || w2 == false || w3 == false || w4 == false || w5 == false || w6 == false || w7 == false || w8 == false)
+            if (w1 == false || w2 == false || w3 == false || w4 == false || w5 == false || w6 == false || w7 == false || w8 == false)
             {
                 return false;
             }
@@ -179,6 +179,8 @@ namespace MagazynKsiazek
             this.dataGridView1.DataSource = dt;
              
         }
+
+
 
         private void DodajBT_Click(object sender, EventArgs e)
         {

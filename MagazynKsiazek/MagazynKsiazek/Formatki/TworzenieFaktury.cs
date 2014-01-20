@@ -197,6 +197,12 @@ namespace MagazynKsiazek
             Application.Exit();
         }
 
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            base.OnClosing(e);
+            Application.Exit();
+        }
+
         public void button5_Click(object sender, EventArgs e)
         {
             //Column1.Visible = true;

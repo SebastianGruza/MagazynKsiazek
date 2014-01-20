@@ -21,7 +21,7 @@ namespace MagazynKsiazek
 
         private bool Walidacja()
         {
-            bool w1 = Regex.IsMatch(TytulTB.Text, "^[A-ZĄŚŁÓŻŹŃĘĆ][a-ząćżźńółęśA-ZĄŚŁÓŻŹŃĘĆ -]{2,}$");
+            bool w1 = Regex.IsMatch(TytulTB.Text, "^[a-ząćżźńółęśA-ZĄŚŁÓŻŹŃĘĆ0-9 -]{1,100}$");
             if (w1 == false)
             {
                 TytulTB.BackColor = new Color();
@@ -32,7 +32,7 @@ namespace MagazynKsiazek
                 TytulTB.BackColor = new Color();
                 TytulTB.BackColor = Color.White;
             }
-            bool w2 = Regex.IsMatch(AutorTB.Text, "^[A-ZĄŚŁÓŻŹŃĘĆ][a-ząćżźńółęśA-ZĄŚŁÓŻŹŃĘĆ -]{2,}$");
+            bool w2 = Regex.IsMatch(AutorTB.Text, "^[a-ząćżźńółęśA-ZĄŚŁÓŻŹŃĘĆ -]{1,100}$");
             if (w2 == false)
             {
                 AutorTB.BackColor = new Color();
@@ -44,8 +44,8 @@ namespace MagazynKsiazek
                 AutorTB.BackColor = Color.White;
             }
 
-         
-            bool w3 = Regex.IsMatch(WydawnictwoTB.Text, "^[A-ZĄŚŁÓŻŹŃĘĆ][a-ząćżźńółęśA-ZĄŚŁÓŻŹŃĘĆ -]{2,}$");
+
+            bool w3 = Regex.IsMatch(WydawnictwoTB.Text, "^[a-ząćżźńółęśA-ZĄŚŁÓŻŹŃĘĆ0-9 -]{1,100}$");
             if (w3 == false)
             {
                 WydawnictwoTB.BackColor = new Color();
@@ -56,7 +56,7 @@ namespace MagazynKsiazek
                 WydawnictwoTB.BackColor = new Color();
                 WydawnictwoTB.BackColor = Color.White;
             }
-            bool w4 = Regex.IsMatch(RokTB.Text, "^[0-9]{1,}[a-z]*$");
+            bool w4 = Regex.IsMatch(RokTB.Text, "^[0-9]{1,}$");
             if (w4 == false)
             {
                 RokTB.BackColor = new Color();
@@ -78,7 +78,7 @@ namespace MagazynKsiazek
                 CenaTB.BackColor = new Color();
                 CenaTB.BackColor = Color.White;
             }
-            bool w6 = Regex.IsMatch(GatunekTB.Text, "^[A-ZĄŚŁÓŻŹŃĘĆ][a-ząćżźńółęśA-ZĄŚŁÓŻŹŃĘĆ -]{2,}$");
+            bool w6 = Regex.IsMatch(GatunekTB.Text, "^[a-ząćżźńółęśA-ZĄŚŁÓŻŹŃĘĆ0-9 -]{1,100}$");
             if (w3 == false)
             {
                 GatunekTB.BackColor = new Color();
