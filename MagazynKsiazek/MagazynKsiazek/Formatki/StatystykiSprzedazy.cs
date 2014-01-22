@@ -19,6 +19,8 @@ namespace MagazynKsiazek
             comboBox1.Items.Add("Zestawienie podsumowań tygodniowych sprzedaży");
             comboBox1.Items.Add("Najchętniej kupowane książki");
             comboBox1.Items.Add("Najaktywniejsi klienci");
+            comboBox1.Items.Add("Najchętniej kupowane gatunki książek");
+            comboBox1.Items.Add("Statystyki według miejscowości");
             comboBox1.SelectedIndex = 0;
 
         }
@@ -39,6 +41,8 @@ namespace MagazynKsiazek
 
             string zapytanie="";
 
+
+            // Zestawienie podsumowań miesięcznych sprzedaży
             string zapytanie0 = @"SELECT  
                         strftime('%m-%Y', Data_Wystawienia) as 'Miesiąc, rok',                                
                         sum(sk.Liczba*sk.Cena) as 'Łączna wartość sprzedanych książek',
@@ -54,7 +58,7 @@ namespace MagazynKsiazek
                 GROUP BY strftime('%m-%Y', f.Data_Wystawienia)
                 ORDER BY strftime('%Y', f.Data_Wystawienia), strftime('%m', f.Data_Wystawienia);";
 
-
+            // Zestawienie podsumowań tygodniowych sprzedaży
             string zapytanie1 = @"SELECT  
                         strftime('%W-%Y', Data_Wystawienia) as 'Tydzień, rok',                                
                         sum(sk.Liczba*sk.Cena) as 'Łączna wartość sprzedanych książek',
@@ -70,6 +74,7 @@ namespace MagazynKsiazek
                 GROUP BY strftime('%W-%Y', f.Data_Wystawienia)
                 ORDER BY strftime('%Y', f.Data_Wystawienia), strftime('%W', f.Data_Wystawienia);";
 
+            // Najchętniej kupowane książki
             string zapytanie2 = @"select
                                     k.Tytul as Tytuł, k.Autor as Autor, 
                                     sum(sk.Liczba*sk.Cena) as 'Cena łączna',
@@ -83,6 +88,7 @@ namespace MagazynKsiazek
                                     @"' group by sk.ID_Ksiazki
                                     order by sum(sk.Liczba*sk.Cena)  desc";
 
+            // Najaktywniejsi klienci
             string zapytanie3 = @"select
                                     k.ID_Klienta as 'ID klienta',
                                     k.Imie as Imię, 
@@ -97,6 +103,34 @@ namespace MagazynKsiazek
                                     WHERE f.Data_Wystawienia  BETWEEN '" +
                                     start.ToShortDateString() + "' AND '" + koniec.ToShortDateString() +
                                     @"' group by k.ID_Klienta
+                                    order by sum(sk.Liczba*sk.Cena)  desc";
+            // Najchętniej kupowane gatunki książek
+            string zapytanie4 = @"select
+                                    k.Gatunek,
+                                    sum(sk.Liczba*sk.Cena) as 'Cena łączna',
+                                    sum(sk.Liczba) as 'Ile razy zakupiono',
+                                    sum(sk.Liczba*sk.Cena)/sum(sk.Liczba)  as 'Średnia cena kupionej książki z gatunku'
+                                    from Sprzedaz_Ksiazek as sk 
+                                    LEFT JOIN Ksiazki as k ON (sk.ID_Ksiazki=k.ISBN)
+                                    LEFT JOIN Faktury as f ON (f.ID_Faktury=sk.ID_Faktury)
+                                    WHERE f.Data_Wystawienia  BETWEEN '" +
+                                    start.ToShortDateString() + "' AND '" + koniec.ToShortDateString() +
+                                    @"' group by k.Gatunek
+                                    order by sum(sk.Liczba*sk.Cena)  desc";
+            // Statystyki według miejscowości
+            string zapytanie5 = @"select
+                                    k.Miejscowosc as Miejscowość, 
+                                    sum(sk.Liczba*sk.Cena) as 'Ile wydano na książki',
+                                    sum(sk.Liczba) as 'Ile kupiono książek',                                  
+                                    sum(sk.Liczba*sk.Cena)/sum(sk.Liczba)  as 'Średnia cena kupionej książki w miejscowości',                                    
+                                    count (DISTINCT f.ID_Faktury) as 'Ile faktur wystawiono',       
+                                    sum(sk.Liczba*sk.Cena)/count (DISTINCT f.ID_Faktury) as 'Średnia wartość faktury'
+                                    from Sprzedaz_Ksiazek as sk 
+                                    LEFT JOIN Faktury as f ON (f.ID_Faktury=sk.ID_Faktury)
+                                    LEFT JOIN Klienci as k ON (f.ID_Klienta=k.ID_Klienta)
+                                    WHERE f.Data_Wystawienia  BETWEEN '" +
+                                    start.ToShortDateString() + "' AND '" + koniec.ToShortDateString() +
+                                    @"' group by k.Miejscowosc
                                     order by sum(sk.Liczba*sk.Cena)  desc";
 
             switch (comboBox1.SelectedIndex)
@@ -113,6 +147,12 @@ namespace MagazynKsiazek
                 case 3:
                     zapytanie = zapytanie3;
                     break;
+                case 4:
+                    zapytanie = zapytanie4;
+                    break;
+                case 5:
+                    zapytanie = zapytanie5;
+                    break;
 		        default:
                     MessageBox.Show("Wybierz typ statystyki");
                     break;     
@@ -121,6 +161,41 @@ namespace MagazynKsiazek
 
             DataTable dt = baza.wykonajSelect(zapytanie);
             this.dataGridView1.DataSource = dt;
+
+            //dla cen - zrobienie dwóch miejsc po przecinku:
+            switch (comboBox1.SelectedIndex)
+	        {          
+                case 0:
+                    this.dataGridView1.Columns[2].DefaultCellStyle.Format = "n2";
+                    this.dataGridView1.Columns[3].DefaultCellStyle.Format = "n2";
+                    this.dataGridView1.Columns[4].DefaultCellStyle.Format = "n2";
+                    break;
+                case 1:
+                    this.dataGridView1.Columns[2].DefaultCellStyle.Format = "n2";
+                    this.dataGridView1.Columns[3].DefaultCellStyle.Format = "n2";
+                    this.dataGridView1.Columns[4].DefaultCellStyle.Format = "n2";
+                    break;
+                case 2:
+                    this.dataGridView1.Columns[3].DefaultCellStyle.Format = "n2";
+                    break;
+                case 3:
+                    this.dataGridView1.Columns[4].DefaultCellStyle.Format = "n2";
+                    break;
+                case 4:
+                    this.dataGridView1.Columns[2].DefaultCellStyle.Format = "n2";
+                    this.dataGridView1.Columns[4].DefaultCellStyle.Format = "n2";
+                    break;
+                case 5:
+                    this.dataGridView1.Columns[2].DefaultCellStyle.Format = "n2";
+                    this.dataGridView1.Columns[4].DefaultCellStyle.Format = "n2";
+                    this.dataGridView1.Columns[6].DefaultCellStyle.Format = "n2";
+                    break;
+		        default:
+                    MessageBox.Show("Wybierz typ statystyki");
+                    break;     
+	        } 
+            
+            
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
