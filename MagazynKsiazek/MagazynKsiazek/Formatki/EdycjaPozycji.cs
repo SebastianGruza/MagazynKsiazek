@@ -49,7 +49,7 @@ namespace MagazynKsiazek.Formatki
             VWydawnictwo.Text = ks.Wydawnictwo;
             VRok.Text = ks.RokWydania;
             VCenaHurt.Text = String.Format("{0:C}",ks.Cena);
-            VCenaZak.Value = Convert.ToDecimal(ks.Cena * 1.2);
+            VCenaZak.Value = ks.Cena * Convert.ToDecimal(1.2);
             VIloscMag.Text = ks.Ilosc.ToString();
             VGat.Text = ks.Gatunek;
             try

@@ -15,6 +15,12 @@ namespace MagazynKsiazek
         public StatystykiSprzedazy()
         {
             InitializeComponent();
+            comboBox1.Items.Add("Zestawienie podsumowań miesięcznych sprzedaży");
+            comboBox1.Items.Add("Zestawienie podsumowań tygodniowych sprzedaży");
+            comboBox1.Items.Add("Najchętniej kupowane książki");
+            comboBox1.Items.Add("Najaktywniejsi klienci");
+            comboBox1.SelectedIndex = 0;
+
         }
 
        
@@ -30,21 +36,11 @@ namespace MagazynKsiazek
             BazaDanych baza = new BazaDanych();
             DateTime start = dateTimePicker1.Value;
             DateTime koniec = dateTimePicker2.Value;
-            string zapytanie1 = @"select
-                                    k.Tytul as Tytuł, k.Autor as Autor, 
-                                    sum(sk.Liczba*sk.Cena) as 'Cena łączna',
-                                    sum(sk.Liczba) as 'Ile razy zakupiono'
-                                    from Sprzedaz_Ksiazek as sk 
-                                    LEFT JOIN Ksiazki as k ON (sk.ID_Ksiazki=k.ISBN)
-                                    LEFT JOIN Faktury as f ON (f.ID_Faktury=sk.ID_Faktury)
-                                    WHERE f.Data_Wystawienia  BETWEEN '" +
-                                    start.ToShortDateString() + "' AND '" + koniec.ToShortDateString() +
-                                    @"' group by sk.ID_Ksiazki
-                                    order by sum(sk.Liczba*sk.Cena)  desc";
 
+            string zapytanie="";
 
-            string zapytanie2 = @"SELECT  
-                        strftime('%m-%Y', Data_Wystawienia) as 'Okres',                                
+            string zapytanie0 = @"SELECT  
+                        strftime('%m-%Y', Data_Wystawienia) as 'Miesiąc, rok',                                
                         sum(sk.Liczba*sk.Cena) as 'Łączna wartość sprzedanych książek',
                         sum(sk.liczba * k.Cena) as 'Wartość zakupu książek',
                         sum(sk.liczba * (sk.Cena - k.Cena)) as 'Łączny zysk',
@@ -53,12 +49,77 @@ namespace MagazynKsiazek
                 FROM    Faktury as f
                 LEFT JOIN  Sprzedaz_Ksiazek as sk ON (sk.ID_Faktury=f.ID_Faktury)
                 LEFT JOIN Ksiazki as k ON (sk.ID_Ksiazki=k.ISBN)
-                WHERE   f.Data_Wystawienia >= '" + start.ToShortDateString()  + @"'
+                WHERE   f.Data_Wystawienia >= '" + start.ToShortDateString() + @"'
                 AND     f.Data_Wystawienia <= '" + koniec.ToShortDateString() + @"'
                 GROUP BY strftime('%m-%Y', f.Data_Wystawienia)
                 ORDER BY strftime('%Y', f.Data_Wystawienia), strftime('%m', f.Data_Wystawienia);";
 
-            DataTable dt = baza.wykonajSelect(zapytanie2);
+
+            string zapytanie1 = @"SELECT  
+                        strftime('%W-%Y', Data_Wystawienia) as 'Tydzień, rok',                                
+                        sum(sk.Liczba*sk.Cena) as 'Łączna wartość sprzedanych książek',
+                        sum(sk.liczba * k.Cena) as 'Wartość zakupu książek',
+                        sum(sk.liczba * (sk.Cena - k.Cena)) as 'Łączny zysk',
+                        sum(sk.Liczba) as 'Liczba sprzedanych książek',
+                        count (DISTINCT f.ID_Faktury) as  'Liczba wystawionych faktur'                        
+                FROM    Faktury as f
+                LEFT JOIN  Sprzedaz_Ksiazek as sk ON (sk.ID_Faktury=f.ID_Faktury)
+                LEFT JOIN Ksiazki as k ON (sk.ID_Ksiazki=k.ISBN)
+                WHERE   f.Data_Wystawienia >= '" + start.ToShortDateString() + @"'
+                AND     f.Data_Wystawienia <= '" + koniec.ToShortDateString() + @"'
+                GROUP BY strftime('%W-%Y', f.Data_Wystawienia)
+                ORDER BY strftime('%Y', f.Data_Wystawienia), strftime('%W', f.Data_Wystawienia);";
+
+            string zapytanie2 = @"select
+                                    k.Tytul as Tytuł, k.Autor as Autor, 
+                                    sum(sk.Liczba*sk.Cena) as 'Cena łączna',
+                                    sum(sk.Liczba) as 'Ile razy zakupiono',
+                                    count (DISTINCT f.ID_Faktury) as  'Na ilu różnych fakturach widnieje'     
+                                    from Sprzedaz_Ksiazek as sk 
+                                    LEFT JOIN Ksiazki as k ON (sk.ID_Ksiazki=k.ISBN)
+                                    LEFT JOIN Faktury as f ON (f.ID_Faktury=sk.ID_Faktury)
+                                    WHERE f.Data_Wystawienia  BETWEEN '" +
+                                    start.ToShortDateString() + "' AND '" + koniec.ToShortDateString() +
+                                    @"' group by sk.ID_Ksiazki
+                                    order by sum(sk.Liczba*sk.Cena)  desc";
+
+            string zapytanie3 = @"select
+                                    k.ID_Klienta as 'ID klienta',
+                                    k.Imie as Imię, 
+                                    k.Nazwisko as Nazwisko, 
+                                    sum(sk.Liczba*sk.Cena) as 'Ile wydał na książki',
+                                    sum(sk.Liczba) as 'Ile kupił książek',
+                                    count (DISTINCT sk.ID_Ksiazki) as 'Ile kupił różnych książek',                                    
+                                    count (DISTINCT f.ID_Faktury) as 'Ile faktur wystawiono'
+                                    from Sprzedaz_Ksiazek as sk 
+                                    LEFT JOIN Faktury as f ON (f.ID_Faktury=sk.ID_Faktury)
+                                    LEFT JOIN Klienci as k ON (f.ID_Klienta=k.ID_Klienta)
+                                    WHERE f.Data_Wystawienia  BETWEEN '" +
+                                    start.ToShortDateString() + "' AND '" + koniec.ToShortDateString() +
+                                    @"' group by k.ID_Klienta
+                                    order by sum(sk.Liczba*sk.Cena)  desc";
+
+            switch (comboBox1.SelectedIndex)
+	        {          
+                case 0:
+                    zapytanie = zapytanie0;
+                    break;
+                case 1:
+                    zapytanie = zapytanie1;
+                    break;
+                case 2:
+                    zapytanie = zapytanie2;
+                    break;
+                case 3:
+                    zapytanie = zapytanie3;
+                    break;
+		        default:
+                    MessageBox.Show("Wybierz typ statystyki");
+                    break;     
+	        } 
+                
+
+            DataTable dt = baza.wykonajSelect(zapytanie);
             this.dataGridView1.DataSource = dt;
         }
 

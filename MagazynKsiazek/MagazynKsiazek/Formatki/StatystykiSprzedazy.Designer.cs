@@ -174,9 +174,9 @@
             // 
             this.groupBox2.Controls.Add(this.comboBox1);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Location = new System.Drawing.Point(344, 41);
+            this.groupBox2.Location = new System.Drawing.Point(335, 41);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(377, 91);
+            this.groupBox2.Size = new System.Drawing.Size(386, 91);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Kryteria";
@@ -184,9 +184,9 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(116, 29);
+            this.comboBox1.Location = new System.Drawing.Point(86, 28);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(255, 21);
+            this.comboBox1.Size = new System.Drawing.Size(294, 21);
             this.comboBox1.TabIndex = 3;
             this.comboBox1.Text = "Wybierz typ statystyki jaką chcesz zobaczyć";
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox_TypStatystyki);
@@ -194,7 +194,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 32);
+            this.label3.Location = new System.Drawing.Point(6, 32);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(74, 13);
             this.label3.TabIndex = 2;
@@ -220,6 +220,7 @@
             // 
             this.Column1.HeaderText = "";
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             this.Column1.Visible = false;
             // 
             // StatystykiSprzedazy

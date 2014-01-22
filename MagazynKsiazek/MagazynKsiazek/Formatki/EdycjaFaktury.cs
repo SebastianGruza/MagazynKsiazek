@@ -124,7 +124,7 @@ namespace MagazynKsiazek.Formatki
                 pozycja.IdKsiazki = ksiazka.ISBN;
                 pozycja.ksi = ksiazka;
                 pozycja.Ilosc = 1;
-                pozycja.Cena = Convert.ToDecimal(ksiazka.Cena * 1.2);
+                pozycja.Cena = ksiazka.Cena * Convert.ToDecimal(1.2);
 
 
 

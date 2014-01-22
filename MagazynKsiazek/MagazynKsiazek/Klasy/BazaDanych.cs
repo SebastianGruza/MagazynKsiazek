@@ -268,7 +268,16 @@ namespace MagazynKsiazek.Klasy
                     ksi.RokWydania = reader.GetString(4);
                     ksi.Gatunek = reader.GetString(5);
                     ksi.Ilosc = reader.GetInt32(6);
-                    ksi.Cena = reader.GetDouble(7);
+                    try
+                    {                        
+                        ksi.Cena = Convert.ToDecimal(reader.GetDouble(7));
+                    }
+                    catch (Exception ex2)
+                    {
+                        MessageBox.Show("Nie załadowano poprawnie ceny hurtowej książki o ISBN " + ksi.ISBN + ". Przyjęto cenę równą 0.", "Nie można odczytać ceny", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        ksi.Cena = 0;
+                    }
+
                     reader.Close();
                 }
 
@@ -314,7 +323,15 @@ namespace MagazynKsiazek.Klasy
                     ksi.RokWydania = reader.GetString(4);
                     ksi.Gatunek = reader.GetString(5);
                     ksi.Ilosc = reader.GetInt32(6);
-                    ksi.Cena = reader.GetDouble(7);
+                    try
+                    {
+                        ksi.Cena = reader.GetDecimal(7);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Nie załadowano poprawnie ceny książki o ISBN " + ksi.ISBN + ". Przyjęto cenę równą 0.","Nie można odczytać ceny",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        ksi.Cena = 0;
+                    }
                     listaKsiazek.Add(ksi);
                 }
                 reader.Close();
@@ -396,12 +413,21 @@ namespace MagazynKsiazek.Klasy
 
                 reader.Close();
                 connection.Close();
+                IList<Ksiazki> listaKsiazek = pobierzListeKsiazek();
 
                 for (int i = 0; i < listaFaktur.Count; i++)
                 {
                     for (int j = 0; j < listaFaktur[i].listaSprzedanychKsiazek.Count; j++)
                     {
-                        listaFaktur[i].listaSprzedanychKsiazek[j].ksi = pobierzKsiazkePoId(listaFaktur[i].listaSprzedanychKsiazek[j].IdKsiazki);
+                        foreach (Ksiazki item in listaKsiazek) //alternatywnie - lepiej tak przypisywać niż pobierać z bazy pojedynczo
+                        {
+                            if (listaFaktur[i].listaSprzedanychKsiazek[j].IdKsiazki==item.ISBN)
+                            {
+                                listaFaktur[i].listaSprzedanychKsiazek[j].ksi = item;
+                                break;
+                            }
+                        }
+                        //listaFaktur[i].listaSprzedanychKsiazek[j].ksi = pobierzKsiazkePoId(listaFaktur[i].listaSprzedanychKsiazek[j].IdKsiazki);
                     }
                     listaFaktur[i].klient = pobierzKlientaPoId(listaFaktur[i].ID_Klienta);
                 }
