@@ -1,6 +1,6 @@
 ﻿namespace MagazynKsiazek
 {
-    partial class RokWydaniaTB
+    partial class DodajKsiazke
     {
         /// <summary>
         /// Required designer variable.

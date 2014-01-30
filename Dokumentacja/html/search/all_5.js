@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['editeditem',['editedItem',['../class_magazyn_ksiazek_1_1_dodaj_klienta.html#aa8b476b2acbf2caa401c191f2d313549',1,'MagazynKsiazek.DodajKlienta.editedItem()'],['../class_magazyn_ksiazek_1_1_rok_wydania_t_b.html#ac89322b0918a7fb1aa93d1b2e31d457c',1,'MagazynKsiazek.RokWydaniaTB.editedItem()'],['../class_magazyn_ksiazek_1_1_tworzenie_faktury.html#a7514496ce320db4bc073216fa3a5ea86',1,'MagazynKsiazek.TworzenieFaktury.editedItem()']]],
+  ['editeditem',['editedItem',['../class_magazyn_ksiazek_1_1_dodaj_klienta.html#aa8b476b2acbf2caa401c191f2d313549',1,'MagazynKsiazek.DodajKlienta.editedItem()'],['../class_magazyn_ksiazek_1_1_dodaj_ksiazke.html#aa305113141ab1b4fa4ed2fda37a17cab',1,'MagazynKsiazek.DodajKsiazke.editedItem()'],['../class_magazyn_ksiazek_1_1_tworzenie_faktury.html#a7514496ce320db4bc073216fa3a5ea86',1,'MagazynKsiazek.TworzenieFaktury.editedItem()']]],
   ['edycjafaktury',['EdycjaFaktury',['../class_magazyn_ksiazek_1_1_formatki_1_1_edycja_faktury.html#a37d699811eb46b6763909f10d6e14e06',1,'MagazynKsiazek::Formatki::EdycjaFaktury']]],
   ['edycjafaktury',['EdycjaFaktury',['../class_magazyn_ksiazek_1_1_formatki_1_1_edycja_faktury.html',1,'MagazynKsiazek::Formatki']]],
   ['edycjafaktury_2ecs',['EdycjaFaktury.cs',['../_edycja_faktury_8cs.html',1,'']]],

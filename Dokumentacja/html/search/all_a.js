@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['kliencitoolstripmenuitem',['klienciToolStripMenuItem',['../class_magazyn_ksiazek_1_1_rok_wydania_t_b.html#a8c0f32e15ce9ea00fa1f14a875f9067c',1,'MagazynKsiazek.RokWydaniaTB.klienciToolStripMenuItem()'],['../class_magazyn_ksiazek_1_1_tworzenie_faktury.html#a2486524fa4e49dc0ab3e96d1b4689a59',1,'MagazynKsiazek.TworzenieFaktury.klienciToolStripMenuItem()']]],
-  ['kliencitoolstripmenuitem_5fclick',['klienciToolStripMenuItem_Click',['../class_magazyn_ksiazek_1_1_rok_wydania_t_b.html#a29cb87f2a733652c6e2db715f4a5394e',1,'MagazynKsiazek::RokWydaniaTB']]],
+  ['kliencitoolstripmenuitem',['klienciToolStripMenuItem',['../class_magazyn_ksiazek_1_1_dodaj_ksiazke.html#aa3cae125edf68059a93441d89784b815',1,'MagazynKsiazek.DodajKsiazke.klienciToolStripMenuItem()'],['../class_magazyn_ksiazek_1_1_tworzenie_faktury.html#a2486524fa4e49dc0ab3e96d1b4689a59',1,'MagazynKsiazek.TworzenieFaktury.klienciToolStripMenuItem()']]],
+  ['kliencitoolstripmenuitem_5fclick',['klienciToolStripMenuItem_Click',['../class_magazyn_ksiazek_1_1_dodaj_ksiazke.html#a81e8f8e9c5af7fc13f004902464fd91e',1,'MagazynKsiazek::DodajKsiazke']]],
   ['klient',['Klient',['../class_magazyn_ksiazek_1_1_klasy_1_1_klient.html',1,'MagazynKsiazek::Klasy']]],
   ['klient',['Klient',['../class_magazyn_ksiazek_1_1_klasy_1_1_klient.html#a2ae29073744c3d99ab3f4a272d2f83a7',1,'MagazynKsiazek.Klasy.Klient.Klient(int id_klienta, string imie, string nazwisko, string email, string miejscowosc, string ulica, string nrdomu, string nrlokalu, string kodpocztowy)'],['../class_magazyn_ksiazek_1_1_klasy_1_1_klient.html#a6a7a25a709b3f4806b8c958edac8530c',1,'MagazynKsiazek.Klasy.Klient.Klient()'],['../class_magazyn_ksiazek_1_1_klasy_1_1_faktura.html#a9e7b90e9153f2de6d8b7a609acb0c98e',1,'MagazynKsiazek.Klasy.Faktura.klient()']]],
   ['klient_2ecs',['Klient.cs',['../_klient_8cs.html',1,'']]],

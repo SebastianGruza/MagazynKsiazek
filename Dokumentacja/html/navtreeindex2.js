@@ -20,8 +20,8 @@ var NAVTREEINDEX2 =
 "namespace_magazyn_ksiazek_1_1_formatki.html":[0,0,0,0],
 "namespace_magazyn_ksiazek_1_1_klasy.html":[0,0,0,1],
 "namespace_magazyn_ksiazek_1_1_klasy.html":[1,0,0,1],
-"namespace_magazyn_ksiazek_1_1_properties.html":[0,0,0,2],
 "namespace_magazyn_ksiazek_1_1_properties.html":[1,0,0,2],
+"namespace_magazyn_ksiazek_1_1_properties.html":[0,0,0,2],
 "namespaces.html":[0,0],
 "pages.html":[]
 };

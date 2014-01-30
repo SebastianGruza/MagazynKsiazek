@@ -7,11 +7,11 @@ var hierarchy =
     [ "MagazynKsiazek.Klasy.Faktura", "class_magazyn_ksiazek_1_1_klasy_1_1_faktura.html", null ],
     [ "Form", null, [
       [ "MagazynKsiazek.DodajKlienta", "class_magazyn_ksiazek_1_1_dodaj_klienta.html", null ],
+      [ "MagazynKsiazek.DodajKsiazke", "class_magazyn_ksiazek_1_1_dodaj_ksiazke.html", null ],
       [ "MagazynKsiazek.Formatki.EdycjaFaktury", "class_magazyn_ksiazek_1_1_formatki_1_1_edycja_faktury.html", null ],
       [ "MagazynKsiazek.Formatki.EdycjaPozycji", "class_magazyn_ksiazek_1_1_formatki_1_1_edycja_pozycji.html", null ],
       [ "MagazynKsiazek.OknoGlowne", "class_magazyn_ksiazek_1_1_okno_glowne.html", null ],
       [ "MagazynKsiazek.OknoLogowania", "class_magazyn_ksiazek_1_1_okno_logowania.html", null ],
-      [ "MagazynKsiazek.RokWydaniaTB", "class_magazyn_ksiazek_1_1_rok_wydania_t_b.html", null ],
       [ "MagazynKsiazek.StatystykiSprzedazy", "class_magazyn_ksiazek_1_1_statystyki_sprzedazy.html", null ],
       [ "MagazynKsiazek.TworzenieFaktury", "class_magazyn_ksiazek_1_1_tworzenie_faktury.html", null ]
     ] ],

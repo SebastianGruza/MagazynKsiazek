@@ -24,7 +24,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_assembly_info_8cs.html",
-"class_magazyn_ksiazek_1_1_okno_glowne.html#ac25a7e16a216c98d6094a76466163486",
+"class_magazyn_ksiazek_1_1_klasy_1_1_faktura.html#aba2f7234374632ba46e94690bfac9464",
 "functions_vars_m.html"
 ];
 

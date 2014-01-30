@@ -4,7 +4,7 @@ var namespace_magazyn_ksiazek =
     [ "Klasy", "namespace_magazyn_ksiazek_1_1_klasy.html", "namespace_magazyn_ksiazek_1_1_klasy" ],
     [ "Properties", "namespace_magazyn_ksiazek_1_1_properties.html", "namespace_magazyn_ksiazek_1_1_properties" ],
     [ "DodajKlienta", "class_magazyn_ksiazek_1_1_dodaj_klienta.html", "class_magazyn_ksiazek_1_1_dodaj_klienta" ],
-    [ "RokWydaniaTB", "class_magazyn_ksiazek_1_1_rok_wydania_t_b.html", "class_magazyn_ksiazek_1_1_rok_wydania_t_b" ],
+    [ "DodajKsiazke", "class_magazyn_ksiazek_1_1_dodaj_ksiazke.html", "class_magazyn_ksiazek_1_1_dodaj_ksiazke" ],
     [ "OknoGlowne", "class_magazyn_ksiazek_1_1_okno_glowne.html", "class_magazyn_ksiazek_1_1_okno_glowne" ],
     [ "OknoLogowania", "class_magazyn_ksiazek_1_1_okno_logowania.html", "class_magazyn_ksiazek_1_1_okno_logowania" ],
     [ "StatystykiSprzedazy", "class_magazyn_ksiazek_1_1_statystyki_sprzedazy.html", "class_magazyn_ksiazek_1_1_statystyki_sprzedazy" ],

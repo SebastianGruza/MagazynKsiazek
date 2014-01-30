@@ -7,10 +7,10 @@ var dir_10639d59e0e99a169bcdb0b0d1444600 =
       [ "DodajKlienta", "class_magazyn_ksiazek_1_1_dodaj_klienta.html", "class_magazyn_ksiazek_1_1_dodaj_klienta" ]
     ] ],
     [ "DodajKsiazke.cs", "_dodaj_ksiazke_8cs.html", [
-      [ "RokWydaniaTB", "class_magazyn_ksiazek_1_1_rok_wydania_t_b.html", "class_magazyn_ksiazek_1_1_rok_wydania_t_b" ]
+      [ "DodajKsiazke", "class_magazyn_ksiazek_1_1_dodaj_ksiazke.html", "class_magazyn_ksiazek_1_1_dodaj_ksiazke" ]
     ] ],
     [ "DodajKsiazke.Designer.cs", "_dodaj_ksiazke_8_designer_8cs.html", [
-      [ "RokWydaniaTB", "class_magazyn_ksiazek_1_1_rok_wydania_t_b.html", "class_magazyn_ksiazek_1_1_rok_wydania_t_b" ]
+      [ "DodajKsiazke", "class_magazyn_ksiazek_1_1_dodaj_ksiazke.html", "class_magazyn_ksiazek_1_1_dodaj_ksiazke" ]
     ] ],
     [ "EdycjaFaktury.cs", "_edycja_faktury_8cs.html", [
       [ "EdycjaFaktury", "class_magazyn_ksiazek_1_1_formatki_1_1_edycja_faktury.html", "class_magazyn_ksiazek_1_1_formatki_1_1_edycja_faktury" ]

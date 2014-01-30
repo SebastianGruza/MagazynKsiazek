@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['autortb',['AutorTB',['../class_magazyn_ksiazek_1_1_rok_wydania_t_b.html#a885841a4361719e7f19fcb1d49a995bf',1,'MagazynKsiazek::RokWydaniaTB']]]
+  ['autortb',['AutorTB',['../class_magazyn_ksiazek_1_1_dodaj_ksiazke.html#a1d5ff13a3320cf86ce02a646b80bcd31',1,'MagazynKsiazek::DodajKsiazke']]]
 ];

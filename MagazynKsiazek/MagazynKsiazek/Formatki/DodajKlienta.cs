@@ -137,7 +137,7 @@ namespace MagazynKsiazek
         private void ToolStripMenuItem_DodajKsiazke(object sender, EventArgs e)
         {
             Hide();
-            RokWydaniaTB ks = new RokWydaniaTB();
+            DodajKsiazke ks = new DodajKsiazke();
             ks.ShowDialog();
         }
 

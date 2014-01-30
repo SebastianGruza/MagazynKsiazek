@@ -15,9 +15,9 @@ namespace MagazynKsiazek
     /// <summary>
     /// Formatka pozwala na dodawanie, usuwanie i edycję danych dotyczących książek w magazynie.
     /// </summary>
-    public partial class RokWydaniaTB : Form
+    public partial class DodajKsiazke : Form
     {
-        public RokWydaniaTB()
+        public DodajKsiazke()
         {
             InitializeComponent();
         }

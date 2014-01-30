@@ -28,7 +28,7 @@ var searchData=
   ['button5',['button5',['../class_magazyn_ksiazek_1_1_tworzenie_faktury.html#a69aaa82d1d37b8c285dd6343183a6da6',1,'MagazynKsiazek::TworzenieFaktury']]],
   ['button5_5fclick',['button5_Click',['../class_magazyn_ksiazek_1_1_tworzenie_faktury.html#a807f56836e9cee64b8816260c3bd925b',1,'MagazynKsiazek::TworzenieFaktury']]],
   ['button6_5fclick',['button6_Click',['../class_magazyn_ksiazek_1_1_tworzenie_faktury.html#a26b2b0a34b5cd693986681700c5e80b1',1,'MagazynKsiazek::TworzenieFaktury']]],
-  ['button_5faktualizuj',['button_Aktualizuj',['../class_magazyn_ksiazek_1_1_rok_wydania_t_b.html#a0731899a8673bc9d4c04501590ad7582',1,'MagazynKsiazek.RokWydaniaTB.button_Aktualizuj()'],['../class_magazyn_ksiazek_1_1_tworzenie_faktury.html#a96e5456279ddd502025f7ad15152d5d9',1,'MagazynKsiazek.TworzenieFaktury.button_Aktualizuj()']]],
+  ['button_5faktualizuj',['button_Aktualizuj',['../class_magazyn_ksiazek_1_1_dodaj_ksiazke.html#a2909ee3b8efe0ab0b36604d3306739dc',1,'MagazynKsiazek.DodajKsiazke.button_Aktualizuj()'],['../class_magazyn_ksiazek_1_1_tworzenie_faktury.html#a96e5456279ddd502025f7ad15152d5d9',1,'MagazynKsiazek.TworzenieFaktury.button_Aktualizuj()']]],
   ['button_5fbazaklientow',['button_BazaKlientow',['../class_magazyn_ksiazek_1_1_okno_glowne.html#adc5aae8bb98c87e0f061111612871188',1,'MagazynKsiazek::OknoGlowne']]],
   ['button_5fbazaksiazek',['button_BazaKsiazek',['../class_magazyn_ksiazek_1_1_okno_glowne.html#aa13ff70c70ef858fd6f10176d72f208e',1,'MagazynKsiazek::OknoGlowne']]],
   ['button_5fdodaj',['button_Dodaj',['../class_magazyn_ksiazek_1_1_tworzenie_faktury.html#a578d3fa0138a45d6fddfa448d9d97082',1,'MagazynKsiazek::TworzenieFaktury']]],
