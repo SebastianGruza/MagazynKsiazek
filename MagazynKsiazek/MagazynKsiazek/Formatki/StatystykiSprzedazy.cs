@@ -10,6 +10,9 @@ using MagazynKsiazek.Klasy;
 
 namespace MagazynKsiazek
 {
+    /// <summary>
+    /// Formatka związana z wyświetlaniem statystyk sprzedaży i generowaniem raportów sprzedaży.
+    /// </summary>
     public partial class StatystykiSprzedazy : Form
     {
         public StatystykiSprzedazy()

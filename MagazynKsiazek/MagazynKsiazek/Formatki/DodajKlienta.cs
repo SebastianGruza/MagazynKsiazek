@@ -11,6 +11,9 @@ using System.Text.RegularExpressions;
 
 namespace MagazynKsiazek
 {
+    /// <summary>
+    /// Formatka pozwala na dodawanie, usuwanie oraz edycję listy klientów magazynu.
+    /// </summary>
     public partial class DodajKlienta : Form
     {
  

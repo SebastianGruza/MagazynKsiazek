@@ -10,6 +10,9 @@ using MagazynKsiazek.Klasy;
 
 namespace MagazynKsiazek.Formatki
 {
+    /// <summary>
+    /// Formatka pozwala na edycję szczegółów pojedynczej pozycji dotyczącej konkretnej faktury.
+    /// </summary>
     public partial class EdycjaPozycji : Form
     {
         public SprzedazKsiazek sprzedaz;

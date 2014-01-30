@@ -12,6 +12,11 @@ using MagazynKsiazek.Formatki;
 
 namespace MagazynKsiazek
 {
+    /// <summary>
+    /// Formatka pozwala na wyświetlenie i przejrzenie listy wszystkich faktur, możliwość dodawania 
+    /// i usunięcia faktur występujących na liście i uruchomienie dalszego modułu dotyczącego szczegółów
+    /// faktury.
+    /// </summary>
     public partial class TworzenieFaktury : Form
     {
         public TworzenieFaktury()

@@ -5,10 +5,18 @@ using System.Text;
 
 namespace MagazynKsiazek.Klasy
 {
+    /// <summary>
+    /// Pozwala na przechowywanie wszystkich danych dotyczących faktur.
+    /// </summary>
     public class Faktura
     {
-
+        /// <summary>
+        /// Szczegóły dotyczące poszczególnych pozycji książkowych na tej fakturze.
+        /// </summary>
         public IList<SprzedazKsiazek> listaSprzedanychKsiazek = new List<SprzedazKsiazek>();
+        /// <summary>
+        /// klient, którego faktura dotyczy
+        /// </summary>
         public Klient klient=null;
         public Faktura()
         {
@@ -45,6 +53,9 @@ namespace MagazynKsiazek.Klasy
 
 
         private DateTime _Data;
+        /// <summary>
+        /// Data drukowania faktury sprzedaży.
+        /// </summary>
         public DateTime Data
         {
             get
@@ -70,7 +81,10 @@ namespace MagazynKsiazek.Klasy
         }
 
  
-
+        /// <summary>
+        /// Obliczenie ceny całkowitej faktury na podstawie ceny poszczególnych pozycji książkowych
+        /// (szczegółów faktury).
+        /// </summary>
         public decimal Cena
         {
             get

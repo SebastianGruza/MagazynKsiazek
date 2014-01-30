@@ -10,6 +10,10 @@ using System.Windows.Forms;
 
 namespace MagazynKsiazek
 {
+    /// <summary>
+    /// Formatka, która jako pierwsza włącza się po zalogowaniu do systemu. Umożliwia
+    /// przejście do jednego z 4 głównych modułów programu.
+    /// </summary>
     public partial class OknoGlowne : Form
     {
 

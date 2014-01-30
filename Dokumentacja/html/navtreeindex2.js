@@ -1,0 +1,27 @@
+var NAVTREEINDEX2 =
+{
+"functions_vars_m.html":[1,3,2,12],
+"functions_vars_n.html":[1,3,2,13],
+"functions_vars_p.html":[1,3,2,14],
+"functions_vars_r.html":[1,3,2,15],
+"functions_vars_s.html":[1,3,2,16],
+"functions_vars_t.html":[1,3,2,17],
+"functions_vars_u.html":[1,3,2,18],
+"functions_vars_v.html":[1,3,2,19],
+"functions_vars_w.html":[1,3,2,20],
+"functions_vars_z.html":[1,3,2,21],
+"functions_w.html":[1,3,0,21],
+"functions_z.html":[1,3,0,22],
+"hierarchy.html":[1,2],
+"index.html":[],
+"namespace_magazyn_ksiazek.html":[1,0,0],
+"namespace_magazyn_ksiazek.html":[0,0,0],
+"namespace_magazyn_ksiazek_1_1_formatki.html":[1,0,0,0],
+"namespace_magazyn_ksiazek_1_1_formatki.html":[0,0,0,0],
+"namespace_magazyn_ksiazek_1_1_klasy.html":[0,0,0,1],
+"namespace_magazyn_ksiazek_1_1_klasy.html":[1,0,0,1],
+"namespace_magazyn_ksiazek_1_1_properties.html":[0,0,0,2],
+"namespace_magazyn_ksiazek_1_1_properties.html":[1,0,0,2],
+"namespaces.html":[0,0],
+"pages.html":[]
+};

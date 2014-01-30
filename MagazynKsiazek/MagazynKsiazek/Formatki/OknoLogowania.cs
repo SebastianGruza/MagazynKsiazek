@@ -10,6 +10,9 @@ using MagazynKsiazek.Klasy;
 
 namespace MagazynKsiazek
 {
+    /// <summary>
+    /// Formatka związana umożliwienie logowania do programu tylko przez osoby uprawnione.
+    /// </summary>
     public partial class OknoLogowania : Form
     {
         public OknoLogowania()

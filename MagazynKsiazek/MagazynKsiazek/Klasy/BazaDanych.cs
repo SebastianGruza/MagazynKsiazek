@@ -8,17 +8,31 @@ using System.Windows.Forms;
 
 namespace MagazynKsiazek.Klasy
 {
+    /// <summary>
+    /// Klasa pozwala na łączenie z bazą danych oraz wszelkie operacje dotyczące zapisu/odczytu
+    /// w bazie danych: pobieranie z bazy poszczególnych rekordów, wyszukiwanie, edycję, usuwanie,
+    /// dodawanie.
+    /// </summary>
     class BazaDanych
     {
         private SQLiteConnection connection;
 
+        /// <summary>
+        /// Konstruktor odpowiedzialny za tworzenie nowego połączenia z bazą danych SQLite, 
+        /// a konkretnie z plikiem 'magazyn.db'.
+        /// </summary>
         public BazaDanych()
         {
             connection = new SQLiteConnection(@"Data Source=magazyn.db");
         }
 
         #region Klient
-
+        /// <summary>
+        /// Metoda pozwala na zapytania do bazy danych w rodzaju 'SELECT ...' i wyświetla wyniki
+        /// w formie tabelki 'DataTable'.
+        /// </summary>
+        /// <param name="query">zapytanie dane silnikowi baz danych SQLite</param>
+        /// <returns>tabelka ze zwróconymi wynikami zapytania</returns>
         public DataTable wykonajSelect(string query)
         {
             DataTable dt = new DataTable();
@@ -44,6 +58,10 @@ namespace MagazynKsiazek.Klasy
             return dt;
         }
 
+        /// <summary>
+        /// Pozwala na dodanie do bazy danych 'klienta' poprzez wewnętrzne zapytania SQL 'INSERT INTO ...'.
+        /// </summary>
+        /// <param name="klient"> dodawany obiekt 'klienta' do bazy</param>
         public void DodajKlienta(Klient klient)
         {
             using (connection)
@@ -56,6 +74,11 @@ namespace MagazynKsiazek.Klasy
             }
         }
 
+
+        /// <summary>
+        /// Umożliwia usuwanie klienta z bazy danych o podanym id.
+        /// </summary>
+        /// <param name="id"> - id klienta, którego chcemy usunąć z bazy danych</param>
         public void UsunKlienta(int id)
         {
             using (connection)
@@ -68,6 +91,12 @@ namespace MagazynKsiazek.Klasy
             }
         }
 
+        /// <summary>
+        /// Pozwala na edycję danych klienta użycie wewnętrznie zapytania 'UPDATE...'
+        /// </summary>
+        /// <param name="id">id edytowanego klienta</param>
+        /// <param name="colName">nazwa kolumny, którego atrybut zmieniamy</param>
+        /// <param name="newValue">nowa wartość atrybutu klienta dla zmienianej kolumny</param>
         public void EdytujKlienta(int id, string colName, string newValue)
         {
             using (connection)
@@ -80,6 +109,11 @@ namespace MagazynKsiazek.Klasy
             }
         }
 
+        /// <summary>
+        /// Pozwala na wyszukanie w bazie danych i zwrócenie klienta po jego id w bazie danych.
+        /// </summary>
+        /// <param name="p">id klienta, którego chcemy znaleźć w bazie danych</param>
+        /// <returns>obiekt zwracanego klienta</returns>
         private Klient pobierzKlientaPoId(int p)
         {
 
@@ -126,7 +160,10 @@ namespace MagazynKsiazek.Klasy
             return klient;
         }
 
-
+        /// <summary>
+        /// Pozwala na 'hurtowe' pobranie listy wszystkich klientów z bazy danych.
+        /// </summary>
+        /// <returns>pobrana z bazy lista wszystkich klientów</returns>
         internal IList<Klient> pobierzListeKlientow()
         {
             IList<Klient> listaKlientow = new List<Klient>();
@@ -176,6 +213,12 @@ namespace MagazynKsiazek.Klasy
         #endregion
 
         #region Ksiazka
+        /// <summary>
+        /// Metoda pozwala na zapytania do bazy danych w rodzaju 'SELECT ...' i wyświetla wyniki
+        /// w formie tabelki 'DataTable'.
+        /// </summary>
+        /// <param name="query">zapytanie dane silnikowi baz danych SQLite</param>
+        /// <returns>tabelka ze zwróconymi wynikami zapytania</returns>        
         public DataTable wykonajSelectKsiazki(string query)
         {
             DataTable dt = new DataTable();
@@ -201,6 +244,10 @@ namespace MagazynKsiazek.Klasy
             return dt;
         }
 
+        /// <summary>
+        /// Umożliwia dodanie książki do bazy danych poprzez zapytanie 'INSERT INTO'
+        /// </summary>
+        /// <param name="ksiazka">dodawna do bazy książka</param>
         public void DodajKsiazke(Ksiazki ksiazka)
         {
             using (connection)
@@ -213,6 +260,10 @@ namespace MagazynKsiazek.Klasy
             }
         }
 
+        /// <summary>
+        /// Pozwala na usunięcie książki z bazy danych poprzez wewnętrzne zapytanie 'DELETE...'
+        /// </summary>
+        /// <param name="isbn">isbn (id) książki do usunięcia</param>
         public void UsunKsiazke(int isbn)
         {
             using (connection)
@@ -225,6 +276,12 @@ namespace MagazynKsiazek.Klasy
             }
         }
 
+        /// <summary>
+        /// Pozwala na edycję danych książki poprzez użycie wewnętrznie zapytania 'UPDATE...'
+        /// </summary>
+        /// <param name="isbn">isbn (id) edytowanej książki</param>
+        /// <param name="colName">nazwa kolumny, którego atrybut zmieniamy</param>
+        /// <param name="newValue">nowa wartość atrybutu książki dla zmienianej kolumny</param>
         public void EdytujKsiazke(int isbn, string colName, string newValue)
         {
             using (connection)
@@ -241,7 +298,11 @@ namespace MagazynKsiazek.Klasy
 
         #region Faktura
 
-
+        /// <summary>
+        /// Umożliwia wyszukanie w bazie danych książki na podstawie jej id.
+        /// </summary>
+        /// <param name="Id">id poszukiwanej książki</param>
+        /// <returns>książka, której szukamy</returns>
         private Ksiazki pobierzKsiazkePoId(int Id)
         {
 
@@ -296,7 +357,10 @@ namespace MagazynKsiazek.Klasy
 
         }
 
-
+        /// <summary>
+        /// Umożliwia pobranie listy wszystkich książek z bazy danych.
+        /// </summary>
+        /// <returns>lista wszystkich książek, obecnych w bazie danych</returns>
         internal IList<Ksiazki> pobierzListeKsiazek()
         {
 
@@ -349,6 +413,12 @@ namespace MagazynKsiazek.Klasy
             return listaKsiazek;
 
         }
+
+        /// <summary>
+        /// Wyszukuje i pobiera z bazy danych listę wszystkich 
+        /// faktur wraz ze szczegółami dotyczącymi każdej z faktur.
+        /// </summary>
+        /// <returns>lista faktur wyszukana w bazie danych</returns>
         internal IList<Faktura> pobierzListeFaktur()
         {
             IList<Faktura> listaFaktur = new List<Faktura>();
@@ -443,7 +513,10 @@ namespace MagazynKsiazek.Klasy
             return listaFaktur;
         }
 
-
+        /// <summary>
+        /// Pozwala na usunięcie z bazy danych wszystkich szczegółów odnośnie wybranej faktury.
+        /// </summary>
+        /// <param name="id_faktury">id faktury, którą chcemy usunąć</param>
         public void UsunFakture(int id_faktury)
         {
             using (connection)
@@ -460,6 +533,10 @@ namespace MagazynKsiazek.Klasy
             }
         }
 
+        /// <summary>
+        /// Pozwala na dodanie do bazy danych pojedynczą fakturę (wraz ze wszystkimi szczegółami).
+        /// </summary>
+        /// <param name="faktura">dodawana faktura</param>
         public void DodajFakture(Faktura faktura)
         {
             using (connection)

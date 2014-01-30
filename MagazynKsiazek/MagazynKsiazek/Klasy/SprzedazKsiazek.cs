@@ -5,10 +5,17 @@ using System.Text;
 
 namespace MagazynKsiazek.Klasy
 {
+    /// <summary>
+    /// Klasa umożliwia przechowywanie danych odnośnie szczegółów pozycji faktury 
+    /// sprzedawanych książek
+    /// </summary>
     public class SprzedazKsiazek
     {
 
         private int _Id;
+        /// <summary>
+        /// id szczegółu (pozycji) na fakturze, przechowywany w bazie danych
+        /// </summary>
         public int Id
         {
             get
@@ -21,6 +28,9 @@ namespace MagazynKsiazek.Klasy
             }
         }
         private int _IdKsiazki;
+        /// <summary>
+        /// id książki, której pozycja na fakturze dotyczy
+        /// </summary>
         public int IdKsiazki
         {
             get
@@ -34,6 +44,9 @@ namespace MagazynKsiazek.Klasy
         }
 
         private Ksiazki _ksi;
+        /// <summary>
+        /// Szczegółowy opis książki, której pozycja dotyczy
+        /// </summary>
         public Ksiazki ksi
         {
             get
@@ -47,6 +60,9 @@ namespace MagazynKsiazek.Klasy
         }
 
         private decimal _Cena;
+        /// <summary>
+        /// Cena jednostkowa sprzedaży tej pozycji.
+        /// </summary>
         public decimal Cena
         {
             get
@@ -59,6 +75,10 @@ namespace MagazynKsiazek.Klasy
             }
         }
 
+        /// <summary>
+        /// Pozwala na wyświetlanie ceny książki z kropką '.' zamiast przecinka ','
+        /// niezbędne do prawidłowego stosowana ceny w zapytaniach SQLite.
+        /// </summary>
         public string CenaString
         {
             get
@@ -71,6 +91,9 @@ namespace MagazynKsiazek.Klasy
         }
 
         private decimal _Ilosc;
+        /// <summary>
+        /// Ile jest na fakturze pozycji danej książki.
+        /// </summary>
         public decimal Ilosc
         {
             get
@@ -83,6 +106,7 @@ namespace MagazynKsiazek.Klasy
             }
         }
 
+/*
         public string IloscString
         {
             get
@@ -93,6 +117,6 @@ namespace MagazynKsiazek.Klasy
                 return SB.ToString();
             }
         }
-
+*/
     }
 }

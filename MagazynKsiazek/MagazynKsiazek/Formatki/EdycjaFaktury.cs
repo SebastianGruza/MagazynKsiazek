@@ -10,6 +10,9 @@ using MagazynKsiazek.Klasy;
 
 namespace MagazynKsiazek.Formatki
 {
+    /// <summary>
+    /// Formatka pozwala na edycję faktury: zmiany jej parametrów, wyboru książek, itd..
+    /// </summary>
     public partial class EdycjaFaktury : Form
     {
 
